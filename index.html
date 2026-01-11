@@ -125,7 +125,7 @@
         .section-title {
             font-size: 3rem;
             text-align: center;
-            color: #d4af85;
+            color: #1a6b54;
             margin-bottom: 3rem;
             position: relative;
         }
@@ -135,7 +135,7 @@
             display: block;
             width: 100px;
             height: 2px;
-            background: linear-gradient(90deg, transparent, #a7c7b4, transparent);
+            background: linear-gradient(90deg, transparent, #2d8b6f, transparent);
             margin: 1rem auto;
         }
         
@@ -160,12 +160,12 @@
         }
         
         .timeline-item {
-            background: linear-gradient(135deg, #fef5f7 0%, #f0f7f9 100%);
+            background: linear-gradient(135deg, rgba(26, 107, 84, 0.08) 0%, rgba(45, 139, 111, 0.08) 100%);
             padding: 2rem;
             border-radius: 15px;
             margin-bottom: 2rem;
-            border-left: 4px solid #d4af85;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-left: 4px solid #1a6b54;
+            box-shadow: 0 4px 15px rgba(26, 107, 84, 0.1);
             transition: transform 0.3s ease;
         }
         
@@ -175,19 +175,19 @@
         
         .timeline-time {
             font-size: 1.3rem;
-            color: #5a7a8c;
+            color: #1a6b54;
             font-weight: 500;
             margin-bottom: 0.5rem;
         }
         
         .timeline-title {
             font-size: 1.8rem;
-            color: #d4af85;
+            color: #0a3d2e;
             margin-bottom: 0.5rem;
         }
         
         .timeline-location {
-            color: #6b8e9f;
+            color: #2d8b6f;
             font-size: 1rem;
         }
         
@@ -200,26 +200,31 @@
         
         .gallery-item {
             aspect-ratio: 1;
-            background: linear-gradient(135deg, #f5e6e8 0%, #e8f2e8 100%);
+            background: linear-gradient(135deg, rgba(26, 107, 84, 0.1) 0%, rgba(45, 139, 111, 0.1) 100%);
             border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
-            color: #d4af85;
+            overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
         .gallery-item:hover {
             transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(26, 107, 84, 0.2);
         }
         
         /* Registry */
         .registry-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
             max-width: 900px;
             margin: 0 auto;
@@ -232,10 +237,12 @@
             text-align: center;
             box-shadow: 0 5px 20px rgba(0,0,0,0.08);
             transition: transform 0.3s ease;
+            border: 2px solid rgba(26, 107, 84, 0.1);
         }
         
         .registry-card:hover {
             transform: translateY(-10px);
+            border-color: rgba(26, 107, 84, 0.3);
         }
         
         .registry-icon {
@@ -245,12 +252,33 @@
         
         .registry-name {
             font-size: 1.5rem;
-            color: #5a7a8c;
+            color: #1a6b54;
             margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .account-details {
+            margin: 1.5rem 0;
+            line-height: 1.8;
+        }
+
+        .account-name {
+            color: #2d8b6f;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .account-number {
+            color: #0a3d2e;
+            font-size: 1.4rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-top: 0.5rem;
         }
         
         .registry-btn {
-            background: linear-gradient(135deg, #d4af85 0%, #a7c7b4 100%);
+            background: linear-gradient(135deg, #1a6b54 0%, #2d8b6f 100%);
             color: white;
             padding: 12px 30px;
             border: none;
@@ -258,10 +286,12 @@
             cursor: pointer;
             font-size: 1rem;
             transition: transform 0.3s ease;
+            font-weight: 500;
         }
         
         .registry-btn:hover {
             transform: scale(1.05);
+            background: linear-gradient(135deg, #0a3d2e 0%, #1a6b54 100%);
         }
         
         /* FAQ */
@@ -279,11 +309,11 @@
         }
         
         .faq-question {
-            background: linear-gradient(135deg, #fef5f7 0%, #f0f7f9 100%);
+            background: linear-gradient(135deg, rgba(26, 107, 84, 0.08) 0%, rgba(45, 139, 111, 0.08) 100%);
             padding: 1.5rem;
             cursor: pointer;
             font-size: 1.2rem;
-            color: #5a7a8c;
+            color: #1a6b54;
             font-weight: 500;
             display: flex;
             justify-content: space-between;
@@ -292,7 +322,7 @@
         }
         
         .faq-question:hover {
-            background: linear-gradient(135deg, #f5e6e8 0%, #e8f2e8 100%);
+            background: linear-gradient(135deg, rgba(26, 107, 84, 0.12) 0%, rgba(45, 139, 111, 0.12) 100%);
         }
         
         .faq-answer {
@@ -311,7 +341,7 @@
         
         .faq-toggle {
             font-size: 1.5rem;
-            color: #d4af85;
+            color: #1a6b54;
             transition: transform 0.3s ease;
         }
         
@@ -321,10 +351,10 @@
         
         /* Footer */
         footer {
-            background: linear-gradient(135deg, #f5e6e8 0%, #d4e7ed 50%, #e8f2e8 100%);
+            background: linear-gradient(135deg, rgba(26, 107, 84, 0.1) 0%, rgba(45, 139, 111, 0.08) 100%);
             padding: 40px 20px;
             text-align: center;
-            color: #5a7a8c;
+            color: #2d8b6f;
         }
         
         footer p {
@@ -332,7 +362,7 @@
         }
         
         .heart {
-            color: #d4af85;
+            color: #1a6b54;
             font-size: 1.5rem;
         }
         
@@ -343,6 +373,10 @@
             
             .section-title {
                 font-size: 2rem;
+            }
+
+            .registry-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -364,7 +398,7 @@
         <div class="story-content">
             <p>Every love story is special, but ours is our favorite. From the moment our paths crossed, we knew something magical was beginning.</p>
             <p>Through laughter and tears, adventures and quiet moments, we've built a foundation of love, trust, and friendship that will last a lifetime.</p>
-            <p>Now, we're thrilled to begin our greatest adventure yet - marriage. Join us as we celebrate our love and commitment to each other on December 19th, 2026.</p>
+            <p>Now, we're more than excited to begin our greatest adventure yet - marriage. Join us as we celebrate our love and commitment to each other on December 19th, 2026.</p>
         </div>
     </section>
 
@@ -374,13 +408,8 @@
         <div class="timeline">
             <div class="timeline-item">
                 <div class="timeline-time">10:00 AM</div>
-                <h3 class="timeline-title">Ceremony</h3>
+                <h3 class="timeline-title">Mass</h3>
                 <p class="timeline-location">St. Mary's Catholic Church, North Bank, Makurdi</p>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-time">12:30 PM</div>
-                <h3 class="timeline-title">Cocktail Hour</h3>
-                <p class="timeline-location">Church Gardens</p>
             </div>
             <div class="timeline-item">
                 <div class="timeline-time">2:00 PM</div>
@@ -399,39 +428,42 @@
     <section id="gallery">
         <h2 class="section-title">Our Moments</h2>
         <div class="gallery">
-            <div class="gallery-item">📷</div>
-            <div class="gallery-item">💑</div>
-            <div class="gallery-item">🌸</div>
-            <div class="gallery-item">💕</div>
-            <div class="gallery-item">🎉</div>
-            <div class="gallery-item">✨</div>
-        </div>
-        <p style="text-align: center; margin-top: 2rem; color: #6b8e9f; font-style: italic;">
+            <div class="gallery-item"><img src="photo1.jpg" alt="Grace and Francis"></div>
+            <div class="gallery-item"><img src="photo2.jpg" alt="Grace and Francis"></div>
+            <div class="gallery-item"><img src="photo3.jpg" alt="Grace and Francis"></div>
+            <div class="gallery-item"><img src="photo4.jpg" alt="Grace and Francis"></div>
+            <div class="gallery-item"><img src="photo5.jpg" alt="Grace and Francis"></div>
+            <div class="gallery-item"><img src="photo6.jpg" alt="Grace and Francis"></div>
+        </div>        
+        <p style="text-align: center; margin-top: 2rem; color: #2d8b6f; font-style: italic;">
             Photo placeholders - Add your favorite photos here!
         </p>
     </section>
 
     <!-- Registry -->
     <section id="registry">
-        <h2 class="section-title">Registry</h2>
+        <h2 class="section-title">Gift Registry</h2>
         <p style="text-align: center; margin-bottom: 3rem; color: #6b8e9f; max-width: 600px; margin-left: auto; margin-right: auto;">
-            Your presence at our wedding is the greatest gift of all. However, if you wish to honor us with a gift, we've registered at the following places.
+            Your presence at our wedding is the greatest gift of all. However, if you wish to honor us with a gift, you can send your love and blessings to either of these accounts.
         </p>
         <div class="registry-grid">
             <div class="registry-card">
-                <div class="registry-icon">🎁</div>
-                <h3 class="registry-name">Amazon</h3>
-                <button class="registry-btn" onclick="alert('Add your Amazon registry link here')">View Registry</button>
+                <div class="registry-icon">🏦</div>
+                <h3 class="registry-name">Sterling Bank</h3>
+                <div class="account-details">
+                    <p class="account-name">Ameh Francis Imaben</p>
+                    <p class="account-number">0069284356</p>
+                </div>
+                <button class="registry-btn" onclick="copyToClipboard('0069284356', 'Sterling Bank')">Copy Account Number</button>
             </div>
             <div class="registry-card">
-                <div class="registry-icon">🏠</div>
-                <h3 class="registry-name">Home Store</h3>
-                <button class="registry-btn" onclick="alert('Add your store registry link here')">View Registry</button>
-            </div>
-            <div class="registry-card">
-                <div class="registry-icon">✈️</div>
-                <h3 class="registry-name">Honeymoon Fund</h3>
-                <button class="registry-btn" onclick="alert('Add your honeymoon fund link here')">Contribute</button>
+                <div class="registry-icon">🏦</div>
+                <h3 class="registry-name">First Bank</h3>
+                <div class="account-details">
+                    <p class="account-name">Grace Enenu Amuta</p>
+                    <p class="account-number">3157576080</p>
+                </div>
+                <button class="registry-btn" onclick="copyToClipboard('3157576080', 'First Bank')">Copy Account Number</button>
             </div>
         </div>
     </section>
@@ -512,6 +544,14 @@
             
             answer.classList.toggle('active');
             toggle.classList.toggle('active');
+        }
+
+        function copyToClipboard(accountNumber, bankName) {
+            navigator.clipboard.writeText(accountNumber).then(function() {
+                alert('Account number copied!\n' + bankName + ': ' + accountNumber);
+            }, function() {
+                alert('Account Number: ' + accountNumber + '\nPlease copy manually.');
+            });
         }
 
         // Smooth scrolling
