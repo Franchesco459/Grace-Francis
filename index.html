@@ -190,12 +190,31 @@
             color: #2d8b6f;
             font-size: 1rem;
         }
+
+        .map-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: #1a6b54;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 20px;
+            background: rgba(26, 107, 84, 0.1);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .map-link:hover {
+            background: rgba(26, 107, 84, 0.2);
+            transform: translateX(5px);
+        }
         
         /* Photo Gallery */
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
         
         .gallery-item {
@@ -219,6 +238,43 @@
         .gallery-item:hover {
             transform: scale(1.05);
             box-shadow: 0 10px 30px rgba(26, 107, 84, 0.2);
+        }
+
+        .view-more-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #1a6b54 0%, #2d8b6f 100%);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(26, 107, 84, 0.3);
+        }
+
+        .view-more-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(26, 107, 84, 0.4);
+        }
+
+        .rsvp-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #1a6b54 0%, #2d8b6f 100%);
+            color: white;
+            padding: 18px 50px;
+            border-radius: 35px;
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(26, 107, 84, 0.4);
+            letter-spacing: 1px;
+        }
+
+        .rsvp-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(26, 107, 84, 0.5);
         }
         
         /* Registry */
@@ -410,6 +466,9 @@
                 <div class="timeline-time">10:00 AM</div>
                 <h3 class="timeline-title">Mass</h3>
                 <p class="timeline-location">St. Mary's Catholic Church, North Bank, Makurdi</p>
+                <a href="https://maps.app.goo.gl/y9RASGHhf3KthZCU6" target="_blank" class="map-link">
+                    📍 View Location on Google Maps
+                </a>
             </div>
             <div class="timeline-item">
                 <div class="timeline-time">2:00 PM</div>
@@ -431,13 +490,12 @@
             <div class="gallery-item"><img src="photo1.jpg" alt="Grace and Francis"></div>
             <div class="gallery-item"><img src="photo2.jpg" alt="Grace and Francis"></div>
             <div class="gallery-item"><img src="photo3.jpg" alt="Grace and Francis"></div>
-            <div class="gallery-item"><img src="photo4.jpg" alt="Grace and Francis"></div>
-            <div class="gallery-item"><img src="photo5.jpg" alt="Grace and Francis"></div>
-            <div class="gallery-item"><img src="photo6.jpg" alt="Grace and Francis"></div>
         </div>        
-        <p style="text-align: center; margin-top: 2rem; color: #2d8b6f; font-style: italic;">
-            Photo placeholders - Add your favorite photos here!
-        </p>
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="https://drive.google.com/drive/folders/1X8OevxhPDT_XWl-aUE0XMXykT1SqtXhq?usp=sharing" target="_blank" class="view-more-btn">
+                📸 View All Photos
+            </a>
+        </div>
     </section>
 
     <!-- Registry -->
@@ -465,6 +523,24 @@
                 </div>
                 <button class="registry-btn" onclick="copyToClipboard('3157576080', 'First Bank')">Copy Account Number</button>
             </div>
+        </div>
+    </section>
+
+    <!-- RSVP -->
+    <section id="rsvp">
+        <h2 class="section-title">RSVP</h2>
+        <div class="story-content">
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+                We would be honored by your presence at our wedding celebration. Please let us know if you'll be joining us by November 19, 2026.
+            </p>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="https://forms.gle/njA79ePHEqJZv42F6" target="_blank" class="rsvp-btn">
+                    ✉️ RSVP Now
+                </a>
+            </div>
+            <p style="margin-top: 2rem; font-size: 0.95rem; color: #6b8e9f;">
+                Can't access the form? Contact Mary Ameh at +234 816 828 9782 or Mercy Amuta at +234 706 634 1669
+            </p>
         </div>
     </section>
 
