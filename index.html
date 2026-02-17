@@ -7,438 +7,125 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;500&display=swap');
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        body {
-            font-family: 'Montserrat', sans-serif;
-            color: #2c3e50;
-            overflow-x: hidden;
-        }
+        body { font-family: 'Montserrat', sans-serif; color: #2c3e50; overflow-x: hidden; }
+        h1, h2, h3 { font-family: 'Cormorant Garamond', serif; }
         
-        h1, h2, h3 {
-            font-family: 'Cormorant Garamond', serif;
-        }
-        
-        /* Hero Section */
+        /* Hero */
         .hero {
             height: 100vh;
             background: linear-gradient(135deg, #0a3d2e 0%, #1a6b54 50%, #2d8b6f 100%);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; position: relative; overflow: hidden;
         }
-        
         .hero::before {
-            content: '';
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(212, 175, 185, 0.2) 0%, transparent 70%);
-            border-radius: 50%;
-            top: -100px;
-            right: -100px;
-            animation: float 6s ease-in-out infinite;
+            content: ''; position: absolute; width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(212,175,185,0.2) 0%, transparent 70%);
+            border-radius: 50%; top: -100px; right: -100px; animation: float 6s ease-in-out infinite;
         }
-        
         .hero::after {
-            content: '';
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
-            border-radius: 50%;
-            bottom: -50px;
-            left: -50px;
-            animation: float 8s ease-in-out infinite reverse;
+            content: ''; position: absolute; width: 300px; height: 300px;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            border-radius: 50%; bottom: -50px; left: -50px; animation: float 8s ease-in-out infinite reverse;
         }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .hero h1 {
-            font-size: 5rem;
-            font-weight: 300;
-            color: #ffffff;
-            margin-bottom: 1rem;
-            letter-spacing: 2px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
-        
-        .ampersand {
-            font-size: 4rem;
-            color: #d4af85;
-            margin: 0 1rem;
-        }
-        
-        .hero-date {
-            font-size: 1.5rem;
-            color: #f0f7f9;
-            margin-top: 1rem;
-            letter-spacing: 3px;
-        }
-        
-        .hero-location {
-            font-size: 1.1rem;
-            color: #e8f2e8;
-            margin-top: 0.5rem;
-            font-weight: 300;
-        }
-        
-        .scroll-indicator {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
-            color: #ffffff;
-            font-size: 2rem;
-        }
-        
+        @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+        .hero-content { position: relative; z-index: 1; }
+        .hero h1 { font-size: 5rem; font-weight: 300; color: #fff; margin-bottom: 1rem; letter-spacing: 2px; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
+        .ampersand { font-size: 4rem; color: #d4af85; margin: 0 1rem; }
+        .hero-date { font-size: 1.5rem; color: #f0f7f9; margin-top: 1rem; letter-spacing: 3px; }
+        .hero-location { font-size: 1.1rem; color: #e8f2e8; margin-top: 0.5rem; font-weight: 300; }
+        .scroll-indicator { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); animation: bounce 2s infinite; color: #fff; font-size: 2rem; }
         @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            0%,20%,50%,80%,100% { transform: translateX(-50%) translateY(0); }
             40% { transform: translateX(-50%) translateY(-10px); }
             60% { transform: translateX(-50%) translateY(-5px); }
         }
-        
-        /* Section Styling */
-        section {
-            padding: 80px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .section-title {
-            font-size: 3rem;
-            text-align: center;
-            color: #1a6b54;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-        
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 100px;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #2d8b6f, transparent);
-            margin: 1rem auto;
-        }
-        
-        /* Our Story */
-        .story-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            line-height: 1.8;
-            font-size: 1.1rem;
-            color: #4a5568;
-        }
-        
-        .story-content p {
-            margin-bottom: 1.5rem;
-        }
-        
+
+        /* Sections */
+        section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
+        .section-title { font-size: 3rem; text-align: center; color: #1a6b54; margin-bottom: 3rem; position: relative; }
+        .section-title::after { content: ''; display: block; width: 100px; height: 2px; background: linear-gradient(90deg, transparent, #2d8b6f, transparent); margin: 1rem auto; }
+
+        /* Story */
+        .story-content { max-width: 800px; margin: 0 auto; text-align: center; line-height: 1.8; font-size: 1.1rem; color: #4a5568; }
+        .story-content p { margin-bottom: 1.5rem; }
+
         /* Timeline */
-        .timeline {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .timeline-item {
-            background: linear-gradient(135deg, rgba(26, 107, 84, 0.08) 0%, rgba(45, 139, 111, 0.08) 100%);
-            padding: 2rem;
-            border-radius: 15px;
-            margin-bottom: 2rem;
-            border-left: 4px solid #1a6b54;
-            box-shadow: 0 4px 15px rgba(26, 107, 84, 0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .timeline-item:hover {
-            transform: translateX(10px);
-        }
-        
-        .timeline-time {
-            font-size: 1.3rem;
-            color: #1a6b54;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-        
-        .timeline-title {
-            font-size: 1.8rem;
-            color: #0a3d2e;
-            margin-bottom: 0.5rem;
-        }
-        
-        .timeline-location {
-            color: #2d8b6f;
-            font-size: 1rem;
-        }
+        .timeline { max-width: 700px; margin: 0 auto; }
+        .timeline-item { background: linear-gradient(135deg, rgba(26,107,84,0.08) 0%, rgba(45,139,111,0.08) 100%); padding: 2rem; border-radius: 15px; margin-bottom: 2rem; border-left: 4px solid #1a6b54; box-shadow: 0 4px 15px rgba(26,107,84,0.1); transition: transform 0.3s ease; }
+        .timeline-item:hover { transform: translateX(10px); }
+        .timeline-time { font-size: 1.3rem; color: #1a6b54; font-weight: 500; margin-bottom: 0.5rem; }
+        .timeline-title { font-size: 1.8rem; color: #0a3d2e; margin-bottom: 0.5rem; }
+        .timeline-location { color: #2d8b6f; font-size: 1rem; }
+        .map-link { display: inline-block; margin-top: 1rem; color: #1a6b54; text-decoration: none; font-weight: 500; padding: 8px 20px; background: rgba(26,107,84,0.1); border-radius: 20px; transition: all 0.3s ease; }
+        .map-link:hover { background: rgba(26,107,84,0.2); transform: translateX(5px); }
 
-        .map-link {
-            display: inline-block;
-            margin-top: 1rem;
-            color: #1a6b54;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 8px 20px;
-            background: rgba(26, 107, 84, 0.1);
-            border-radius: 20px;
-            transition: all 0.3s ease;
-        }
+        /* Gallery */
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
+        .gallery-item { aspect-ratio: 1; background: linear-gradient(135deg, rgba(26,107,84,0.1) 0%, rgba(45,139,111,0.1) 100%); border-radius: 15px; display: flex; align-items: center; justify-content: center; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+        .gallery-item:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(26,107,84,0.2); }
+        .view-more-btn { display: inline-block; background: linear-gradient(135deg, #1a6b54 0%, #2d8b6f 100%); color: white; padding: 15px 40px; border-radius: 30px; text-decoration: none; font-size: 1.1rem; font-weight: 500; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(26,107,84,0.3); }
+        .view-more-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(26,107,84,0.4); }
 
-        .map-link:hover {
-            background: rgba(26, 107, 84, 0.2);
-            transform: translateX(5px);
-        }
-        
-        /* Photo Gallery */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .gallery-item {
-            aspect-ratio: 1;
-            background: linear-gradient(135deg, rgba(26, 107, 84, 0.1) 0%, rgba(45, 139, 111, 0.1) 100%);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-        }
+        /* Colour Palette */
+        .palette-intro { max-width: 700px; margin: 0 auto 2.5rem; text-align: center; color: #4a5568; line-height: 1.8; font-size: 1.05rem; }
+        .palette-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; max-width: 900px; margin: 0 auto; }
+        .swatch-card { background: white; border-radius: 14px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); overflow: hidden; width: 140px; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer; border: 2px solid rgba(26,107,84,0.1); }
+        .swatch-card:hover { transform: translateY(-8px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); border-color: rgba(26,107,84,0.3); }
+        .swatch { height: 100px; width: 100%; }
+        .swatch-info { padding: 12px; text-align: center; }
+        .swatch-name { font-size: 0.78rem; font-weight: 600; color: #2c3e50; margin-bottom: 6px; }
+        .swatch-hex { font-size: 0.75rem; color: #6b8e9f; font-family: monospace; background: #f5f5f5; padding: 3px 8px; border-radius: 6px; display: inline-block; transition: background 0.2s; }
+        .swatch-card:hover .swatch-hex { background: #e0f0ea; color: #1a6b54; }
+        .swatch-card.white-card { border: 2px solid #e0e0e0; }
+        .copied-toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: #1a6b54; color: white; padding: 12px 28px; border-radius: 25px; font-size: 0.9rem; opacity: 0; transition: opacity 0.3s ease; pointer-events: none; font-weight: 500; z-index: 999; }
+        .copied-toast.show { opacity: 1; }
 
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .gallery-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(26, 107, 84, 0.2);
-        }
+        /* RSVP */
+        .rsvp-btn { display: inline-block; background: linear-gradient(135deg, #1a6b54 0%, #2d8b6f 100%); color: white; padding: 18px 50px; border-radius: 35px; text-decoration: none; font-size: 1.3rem; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 6px 20px rgba(26,107,84,0.4); letter-spacing: 1px; }
+        .rsvp-btn:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(26,107,84,0.5); }
 
-        .view-more-btn {
-            display: inline-block;
-            background: linear-gradient(135deg, #1a6b54 0%, #2d8b6f 100%);
-            color: white;
-            padding: 15px 40px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(26, 107, 84, 0.3);
-        }
+        /* Registry & Cards */
+        .registry-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 900px; margin: 0 auto; }
+        .registry-card { background: white; padding: 2rem; border-radius: 15px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.08); transition: transform 0.3s ease; border: 2px solid rgba(26,107,84,0.1); }
+        .registry-card:hover { transform: translateY(-10px); border-color: rgba(26,107,84,0.3); }
+        .registry-icon { font-size: 3rem; margin-bottom: 1rem; }
+        .registry-name { font-size: 1.5rem; color: #1a6b54; margin-bottom: 1rem; font-weight: 600; }
+        .account-details { margin: 1.5rem 0; line-height: 1.8; }
+        .account-name { color: #2d8b6f; font-weight: 500; margin-bottom: 0.5rem; font-size: 1rem; }
+        .account-number { color: #0a3d2e; font-size: 1.4rem; font-weight: 600; letter-spacing: 1px; margin-top: 0.5rem; }
+        .registry-btn { background: linear-gradient(135deg, #1a6b54 0%, #2d8b6f 100%); color: white; padding: 12px 30px; border: none; border-radius: 25px; cursor: pointer; font-size: 1rem; transition: all 0.3s ease; font-weight: 500; }
+        .registry-btn:hover { transform: scale(1.05); background: linear-gradient(135deg, #0a3d2e 0%, #1a6b54 100%); }
 
-        .view-more-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(26, 107, 84, 0.4);
-        }
-
-        .rsvp-btn {
-            display: inline-block;
-            background: linear-gradient(135deg, #1a6b54 0%, #2d8b6f 100%);
-            color: white;
-            padding: 18px 50px;
-            border-radius: 35px;
-            text-decoration: none;
-            font-size: 1.3rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 6px 20px rgba(26, 107, 84, 0.4);
-            letter-spacing: 1px;
-        }
-
-        .rsvp-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(26, 107, 84, 0.5);
-        }
-        
-        /* Registry */
-        .registry-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        .registry-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease;
-            border: 2px solid rgba(26, 107, 84, 0.1);
-        }
-        
-        .registry-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(26, 107, 84, 0.3);
-        }
-        
-        .registry-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .registry-name {
-            font-size: 1.5rem;
-            color: #1a6b54;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-        
-        .account-details {
-            margin: 1.5rem 0;
-            line-height: 1.8;
-        }
-
-        .account-name {
-            color: #2d8b6f;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-            font-size: 1rem;
-        }
-
-        .account-number {
-            color: #0a3d2e;
-            font-size: 1.4rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            margin-top: 0.5rem;
-        }
-        
-        .registry-btn {
-            background: linear-gradient(135deg, #1a6b54 0%, #2d8b6f 100%);
-            color: white;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: transform 0.3s ease;
-            font-weight: 500;
-        }
-        
-        .registry-btn:hover {
-            transform: scale(1.05);
-            background: linear-gradient(135deg, #0a3d2e 0%, #1a6b54 100%);
-        }
-        
         /* FAQ */
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .faq-item {
-            background: white;
-            margin-bottom: 1.5rem;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
-        }
-        
-        .faq-question {
-            background: linear-gradient(135deg, rgba(26, 107, 84, 0.08) 0%, rgba(45, 139, 111, 0.08) 100%);
-            padding: 1.5rem;
-            cursor: pointer;
-            font-size: 1.2rem;
-            color: #1a6b54;
-            font-weight: 500;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background 0.3s ease;
-        }
-        
-        .faq-question:hover {
-            background: linear-gradient(135deg, rgba(26, 107, 84, 0.12) 0%, rgba(45, 139, 111, 0.12) 100%);
-        }
-        
-        .faq-answer {
-            padding: 0 1.5rem;
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            color: #4a5568;
-            line-height: 1.8;
-        }
-        
-        .faq-answer.active {
-            padding: 1.5rem;
-            max-height: 500px;
-        }
-        
-        .faq-toggle {
-            font-size: 1.5rem;
-            color: #1a6b54;
-            transition: transform 0.3s ease;
-        }
-        
-        .faq-toggle.active {
-            transform: rotate(45deg);
-        }
-        
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, rgba(26, 107, 84, 0.1) 0%, rgba(45, 139, 111, 0.08) 100%);
-            padding: 40px 20px;
-            text-align: center;
-            color: #2d8b6f;
-        }
-        
-        footer p {
-            margin: 10px 0;
-        }
-        
-        .heart {
-            color: #1a6b54;
-            font-size: 1.5rem;
-        }
-        
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 3rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
+        .faq-container { max-width: 800px; margin: 0 auto; }
+        .faq-item { background: white; margin-bottom: 1.5rem; border-radius: 10px; overflow: hidden; box-shadow: 0 3px 15px rgba(0,0,0,0.05); }
+        .faq-question { background: linear-gradient(135deg, rgba(26,107,84,0.08) 0%, rgba(45,139,111,0.08) 100%); padding: 1.5rem; cursor: pointer; font-size: 1.2rem; color: #1a6b54; font-weight: 500; display: flex; justify-content: space-between; align-items: center; transition: background 0.3s ease; }
+        .faq-question:hover { background: linear-gradient(135deg, rgba(26,107,84,0.12) 0%, rgba(45,139,111,0.12) 100%); }
+        .faq-answer { padding: 0 1.5rem; max-height: 0; overflow: hidden; transition: all 0.3s ease; color: #4a5568; line-height: 1.8; }
+        .faq-answer.active { padding: 1.5rem; max-height: 500px; }
+        .faq-toggle { font-size: 1.5rem; color: #1a6b54; transition: transform 0.3s ease; }
+        .faq-toggle.active { transform: rotate(45deg); }
 
-            .registry-grid {
-                grid-template-columns: 1fr;
-            }
+        /* Footer */
+        footer { background: linear-gradient(135deg, rgba(26,107,84,0.1) 0%, rgba(45,139,111,0.08) 100%); padding: 40px 20px; text-align: center; color: #2d8b6f; }
+        footer p { margin: 10px 0; }
+        .heart { color: #1a6b54; font-size: 1.5rem; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .section-title { font-size: 2rem; }
+            .registry-grid { grid-template-columns: 1fr; }
+            .palette-grid { gap: 14px; }
+            .swatch-card { width: 120px; }
         }
     </style>
 </head>
 <body>
-    <!-- Hero Section -->
+
+    <!-- Hero -->
     <section class="hero">
         <div class="hero-content">
             <h1>Grace <span class="ampersand">&</span> Francis</h1>
@@ -458,7 +145,7 @@
         </div>
     </section>
 
-    <!-- Event Timeline -->
+    <!-- Event Schedule -->
     <section id="timeline">
         <h2 class="section-title">Event Schedule</h2>
         <div class="timeline">
@@ -466,16 +153,10 @@
                 <div class="timeline-time">10:00 AM</div>
                 <h3 class="timeline-title">Mass</h3>
                 <p class="timeline-location">St. Mary's Catholic Church, North Bank, Makurdi</p>
-                <p class="timeline-location" style="font-size: 0.95rem; margin-top: 0.5rem; font-style: italic;">
-                    (Opposite North Bank Market)
-                </p>
-                <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 1rem;">
-                    <a href="https://maps.app.goo.gl/y9RASGHhf3KthZCU6" target="_blank" class="map-link">
-                        📍 Church Location
-                    </a>
-                    <a href="https://maps.app.goo.gl/bLDr4TC6ysDd1ahA9" target="_blank" class="map-link">
-                        🏪 North Bank Market
-                    </a>
+                <p class="timeline-location" style="font-size:0.95rem; margin-top:0.5rem; font-style:italic;">(Opposite North Bank Market)</p>
+                <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:1rem;">
+                    <a href="https://maps.app.goo.gl/y9RASGHhf3KthZCU6" target="_blank" class="map-link">📍 Church Location</a>
+                    <a href="https://maps.app.goo.gl/bLDr4TC6ysDd1ahA9" target="_blank" class="map-link">🏪 North Bank Market</a>
                 </div>
             </div>
             <div class="timeline-item">
@@ -498,18 +179,62 @@
             <div class="gallery-item"><img src="photo1.jpg" alt="Grace and Francis"></div>
             <div class="gallery-item"><img src="photo2.jpg" alt="Grace and Francis"></div>
             <div class="gallery-item"><img src="photo3.jpg" alt="Grace and Francis"></div>
-        </div>        
-        <div style="text-align: center; margin-top: 2rem;">
-            <a href="https://drive.google.com/drive/folders/1X8OevxhPDT_XWl-aUE0XMXykT1SqtXhq?usp=sharing" target="_blank" class="view-more-btn">
-                📸 View All Photos
-            </a>
+        </div>
+        <div style="text-align:center; margin-top:2rem;">
+            <a href="https://drive.google.com/drive/folders/1X8OevxhPDT_XWl-aUE0XMXykT1SqtXhq?usp=sharing" target="_blank" class="view-more-btn">📸 View All Photos</a>
         </div>
     </section>
 
-    <!-- Registry -->
+    <!-- Colour Palette -->
+    <section id="palette">
+        <h2 class="section-title">Wedding Colour Palette</h2>
+        <p class="palette-intro">
+            Our wedding colours are a beautiful blend of elegance and African vibrancy. Use these as a guide when selecting your outfit and accessories. Click any colour to copy its hex code!
+        </p>
+        <div class="palette-grid">
+            <div class="swatch-card" onclick="copyHex('#98FF98', 'Light Green (Mint)')">
+                <div class="swatch" style="background:#98FF98;"></div>
+                <div class="swatch-info">
+                    <div class="swatch-name">Light Green (Mint)</div>
+                    <div class="swatch-hex">#98FF98</div>
+                </div>
+            </div>
+            <div class="swatch-card" onclick="copyHex('#001F5B', 'Navy Blue')">
+                <div class="swatch" style="background:#001F5B;"></div>
+                <div class="swatch-info">
+                    <div class="swatch-name">Navy Blue</div>
+                    <div class="swatch-hex">#001F5B</div>
+                </div>
+            </div>
+            <div class="swatch-card" onclick="copyHex('#000000', 'Black')">
+                <div class="swatch" style="background:#000000;"></div>
+                <div class="swatch-info">
+                    <div class="swatch-name">Black</div>
+                    <div class="swatch-hex">#000000</div>
+                </div>
+            </div>
+            <div class="swatch-card" onclick="copyHex('#FFB6C1', 'Blush Pink')">
+                <div class="swatch" style="background:#FFB6C1;"></div>
+                <div class="swatch-info">
+                    <div class="swatch-name">Blush Pink</div>
+                    <div class="swatch-hex">#FFB6C1</div>
+                </div>
+            </div>
+            <div class="swatch-card white-card" onclick="copyHex('#FFFFFF', 'White')">
+                <div class="swatch" style="background:#FFFFFF; border-bottom:1px solid #e0e0e0;"></div>
+                <div class="swatch-info">
+                    <div class="swatch-name">White</div>
+                    <div class="swatch-hex">#FFFFFF</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Gift Registry -->
     <section id="registry">
         <h2 class="section-title">Gift Registry</h2>
-        <p style="text-align: center; margin-bottom: 3rem; color: #6b8e9f; max-width: 600px; margin-left: auto; margin-right: auto;">
+        <p style="text-align:center; margin-bottom:3rem; color:#6b8e9f; max-width:600px; margin-left:auto; margin-right:auto;">
             Your presence at our wedding is the greatest gift of all. However, if you wish to honor us with a gift, you can send your love and blessings to either of these accounts.
         </p>
         <div class="registry-grid">
@@ -538,15 +263,13 @@
     <section id="rsvp">
         <h2 class="section-title">RSVP</h2>
         <div class="story-content">
-            <p style="font-size: 1.2rem; margin-bottom: 2rem;">
-                We would be honored by your presence at our wedding celebration. Please let us know if you'll be joining us by November 19, 2026.
+            <p style="font-size:1.2rem; margin-bottom:2rem;">
+                We would be honored by your presence at our wedding celebration. Please let us know if you'll be joining us by <strong>November 19, 2026</strong>.
             </p>
-            <div style="text-align: center; margin-top: 3rem;">
-                <a href="https://forms.gle/yh94xRPkdZpUFYpe6" target="_blank" class="rsvp-btn">
-                    ✉️ RSVP Now
-                </a>
+            <div style="text-align:center; margin-top:3rem;">
+                <a href="https://forms.gle/yh94xRPkdZpUFYpe6" target="_blank" class="rsvp-btn">✉️ RSVP Now</a>
             </div>
-            <p style="margin-top: 2rem; font-size: 0.95rem; color: #6b8e9f;">
+            <p style="margin-top:2rem; font-size:0.95rem; color:#6b8e9f;">
                 Can't access the form? Contact Mary Ameh at +234 816 828 9782 or Mercy Amuta at +234 706 634 1669
             </p>
         </div>
@@ -558,17 +281,15 @@
         <div class="faq-container">
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFAQ(this)">
-                    What should I wear?
-                    <span class="faq-toggle">+</span>
+                    What should I wear? <span class="faq-toggle">+</span>
                 </div>
                 <div class="faq-answer">
-                    We're going for romantic elegance with a touch of African tradition! Please dress in African attire. Think traditional casual dresses, agbadas, and your most elegant outfits. Our color palette is blush pink, gold, navy, sage green, and cream - feel free to complement these colors!
+                    We're going for romantic elegance with a touch of African tradition! Please dress in African attire. Think traditional casual dresses, agbadas, and your most elegant outfits. Our colour palette is Light Green (Mint), Navy Blue, Black, Blush Pink, White, and Sea Green - feel free to complement these colours! See the <strong>Wedding Colour Palette</strong> section above for exact colour codes.
                 </div>
             </div>
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFAQ(this)">
-                    When should I RSVP by?
-                    <span class="faq-toggle">+</span>
+                    When should I RSVP by? <span class="faq-toggle">+</span>
                 </div>
                 <div class="faq-answer">
                     Please RSVP by November 19, 2026. This helps us finalize our guest count with the venue and caterers. You can RSVP by contacting us directly or through our wedding coordinator.
@@ -576,8 +297,7 @@
             </div>
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFAQ(this)">
-                    Can I bring a plus-one?
-                    <span class="faq-toggle">+</span>
+                    Can I bring a plus-one? <span class="faq-toggle">+</span>
                 </div>
                 <div class="faq-answer">
                     Due to venue capacity, we can only accommodate guests formally invited on your invitation. If you received a plus-one, it will be indicated on your invitation. Please reach out to Mary Ameh (+2348168289782) or Mercy Amuta (+2347066341669) if you have any questions!
@@ -585,8 +305,7 @@
             </div>
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFAQ(this)">
-                    Will there be parking available?
-                    <span class="faq-toggle">+</span>
+                    Will there be parking available? <span class="faq-toggle">+</span>
                 </div>
                 <div class="faq-answer">
                     Yes! There is ample parking available at St. Mary's Catholic Church and at the reception venue. Attendants will be available to assist with parking directions.
@@ -594,8 +313,7 @@
             </div>
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFAQ(this)">
-                    Will the ceremony be indoors or outdoors?
-                    <span class="faq-toggle">+</span>
+                    Will the ceremony be indoors or outdoors? <span class="faq-toggle">+</span>
                 </div>
                 <div class="faq-answer">
                     The ceremony will take place indoors at St. Mary's Catholic Church, and the reception will be indoors at our reception venue.
@@ -607,7 +325,7 @@
     <!-- Enquiries -->
     <section id="enquiries">
         <h2 class="section-title">Enquiries</h2>
-        <p style="text-align: center; margin-bottom: 3rem; color: #6b8e9f; max-width: 600px; margin-left: auto; margin-right: auto;">
+        <p style="text-align:center; margin-bottom:3rem; color:#6b8e9f; max-width:600px; margin-left:auto; margin-right:auto;">
             Have questions or need assistance? Feel free to reach out to our coordinators.
         </p>
         <div class="registry-grid">
@@ -615,7 +333,7 @@
                 <div class="registry-icon">📞</div>
                 <h3 class="registry-name">Mary Ameh</h3>
                 <div class="account-details">
-                    <p class="account-number" style="font-size: 1.2rem;">+234 816 828 9782</p>
+                    <p class="account-number" style="font-size:1.2rem;">+234 816 828 9782</p>
                 </div>
                 <button class="registry-btn" onclick="callNumber('+2348168289782')">Call Now</button>
             </div>
@@ -623,7 +341,7 @@
                 <div class="registry-icon">📞</div>
                 <h3 class="registry-name">Mercy Amuta</h3>
                 <div class="account-details">
-                    <p class="account-number" style="font-size: 1.2rem;">+234 706 634 1669</p>
+                    <p class="account-number" style="font-size:1.2rem;">+234 706 634 1669</p>
                 </div>
                 <button class="registry-btn" onclick="callNumber('+2347066341669')">Call Now</button>
             </div>
@@ -635,40 +353,39 @@
         <p>We can't wait to celebrate with you!</p>
         <p class="heart">♥</p>
         <p>Grace & Francis</p>
-        <p style="font-size: 0.9rem; margin-top: 20px;">December 19, 2026 • Makurdi</p>
+        <p style="font-size:0.9rem; margin-top:20px;">December 19, 2026 • Makurdi</p>
     </footer>
 
+    <div class="copied-toast" id="copiedToast">✅ Copied!</div>
+
     <script>
-        function toggleFAQ(element) {
-            const answer = element.nextElementSibling;
-            const toggle = element.querySelector('.faq-toggle');
-            
-            answer.classList.toggle('active');
-            toggle.classList.toggle('active');
+        function toggleFAQ(el) {
+            el.nextElementSibling.classList.toggle('active');
+            el.querySelector('.faq-toggle').classList.toggle('active');
         }
 
-        function copyToClipboard(accountNumber, bankName) {
-            navigator.clipboard.writeText(accountNumber).then(function() {
-                alert('Account number copied!\n' + bankName + ': ' + accountNumber);
-            }, function() {
-                alert('Account Number: ' + accountNumber + '\nPlease copy manually.');
-            });
+        function copyToClipboard(num, bank) {
+            navigator.clipboard.writeText(num).then(() => showToast('✅ ' + bank + ': ' + num + ' copied!'), () => alert('Account Number: ' + num));
         }
 
-        function callNumber(phoneNumber) {
-            window.location.href = 'tel:' + phoneNumber;
+        function callNumber(phone) { window.location.href = 'tel:' + phone; }
+
+        function copyHex(hex, name) {
+            navigator.clipboard.writeText(hex).then(() => showToast('✅ ' + name + ' ' + hex + ' copied!'));
         }
 
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+        function showToast(msg) {
+            const t = document.getElementById('copiedToast');
+            t.textContent = msg;
+            t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), 2500);
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
+                const t = document.querySelector(a.getAttribute('href'));
+                if (t) t.scrollIntoView({ behavior: 'smooth' });
             });
         });
     </script>
