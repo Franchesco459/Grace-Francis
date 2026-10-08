@@ -12,30 +12,30 @@
         body { font-family: 'Montserrat', sans-serif; color: #2c3e50; overflow-x: hidden; }
         h1, h2, h3 { font-family: 'Cormorant Garamond', serif; }
         
-        /* Hero */
+        /* Hero - Seafoam Mist */
         .hero {
             height: 100vh;
-            background: linear-gradient(135deg, #0a3d2e 0%, #1a6b54 50%, #2d8b6f 100%);
+            background: linear-gradient(135deg, #B3DCD4 0%, #C1E3DD 50%, #D6EDE8 100%);
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             text-align: center; position: relative; overflow: hidden;
         }
         .hero::before {
             content: ''; position: absolute; width: 400px; height: 400px;
-            background: radial-gradient(circle, rgba(212,175,185,0.2) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(255,182,193,0.35) 0%, transparent 70%);
             border-radius: 50%; top: -100px; right: -100px; animation: float 6s ease-in-out infinite;
         }
         .hero::after {
             content: ''; position: absolute; width: 300px; height: 300px;
-            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(255,255,255,0.55) 0%, transparent 70%);
             border-radius: 50%; bottom: -50px; left: -50px; animation: float 8s ease-in-out infinite reverse;
         }
         @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
         .hero-content { position: relative; z-index: 1; }
-        .hero h1 { font-size: 5rem; font-weight: 300; color: #fff; margin-bottom: 1rem; letter-spacing: 2px; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
-        .ampersand { font-size: 4rem; color: #d4af85; margin: 0 1rem; }
-        .hero-date { font-size: 1.5rem; color: #f0f7f9; margin-top: 1rem; letter-spacing: 3px; }
-        .hero-location { font-size: 1.1rem; color: #e8f2e8; margin-top: 0.5rem; font-weight: 300; }
-        .scroll-indicator { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); animation: bounce 2s infinite; color: #fff; font-size: 2rem; }
+        .hero h1 { font-size: 5rem; font-weight: 400; color: #001F5B; margin-bottom: 1rem; letter-spacing: 2px; }
+        .ampersand { font-size: 4rem; color: #9A7339; margin: 0 1rem; }
+        .hero-date { font-size: 1.5rem; color: #001F5B; margin-top: 1rem; letter-spacing: 3px; }
+        .hero-location { font-size: 1.1rem; color: #1B3A6B; margin-top: 0.5rem; font-weight: 400; }
+        .scroll-indicator { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); animation: bounce 2s infinite; color: #001F5B; font-size: 2rem; }
         @keyframes bounce {
             0%,20%,50%,80%,100% { transform: translateX(-50%) translateY(0); }
             40% { transform: translateX(-50%) translateY(-10px); }
@@ -61,11 +61,7 @@
         .map-link { display: inline-block; margin-top: 1rem; color: #1a6b54; text-decoration: none; font-weight: 500; padding: 8px 20px; background: rgba(26,107,84,0.1); border-radius: 20px; transition: all 0.3s ease; }
         .map-link:hover { background: rgba(26,107,84,0.2); transform: translateX(5px); }
 
-        /* Gallery */
-        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
-        .gallery-item { aspect-ratio: 1; background: linear-gradient(135deg, rgba(26,107,84,0.1) 0%, rgba(45,139,111,0.1) 100%); border-radius: 15px; display: flex; align-items: center; justify-content: center; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer; }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
-        .gallery-item:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(26,107,84,0.2); }
+        /* Photos link */
         .view-more-btn { display: inline-block; background: linear-gradient(135deg, #1a6b54 0%, #2d8b6f 100%); color: white; padding: 15px 40px; border-radius: 30px; text-decoration: none; font-size: 1.1rem; font-weight: 500; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(26,107,84,0.3); }
         .view-more-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(26,107,84,0.4); }
 
@@ -175,15 +171,10 @@
         </div>
     </section>
 
-    <!-- Photo Gallery -->
+    <!-- Photos -->
     <section id="gallery">
         <h2 class="section-title">Our Moments</h2>
-        <div class="gallery">
-            <div class="gallery-item"><img src="photo1.jpg" alt="Grace and Francis"></div>
-            <div class="gallery-item"><img src="photo2.jpg" alt="Grace and Francis"></div>
-            <div class="gallery-item"><img src="photo3.jpg" alt="Grace and Francis"></div>
-        </div>
-        <div style="text-align:center; margin-top:2rem;">
+        <div style="text-align:center;">
             <a href="https://drive.google.com/drive/folders/1X8OevxhPDT_XWl-aUE0XMXykT1SqtXhq?usp=sharing" target="_blank" class="view-more-btn">📸 View All Photos</a>
         </div>
     </section>
@@ -230,7 +221,6 @@
                     <div class="swatch-hex">#FFFFFF</div>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -273,7 +263,7 @@
                 <a href="https://forms.gle/yh94xRPkdZpUFYpe6" target="_blank" class="rsvp-btn">✉️ RSVP Now</a>
             </div>
             <p style="margin-top:2rem; font-size:0.95rem; color:#6b8e9f;">
-                Can't access the form? Contact Mary Ameh at +234 816 828 9782 or Mercy Amuta at +234 706 634 1669
+                Can't access the form? Contact Mary Ameh at +234 816 828 9782 or Ann Amuta at +234 903 153 0379
             </p>
         </div>
     </section>
@@ -303,7 +293,7 @@
                     Can I bring a plus-one? <span class="faq-toggle">+</span>
                 </div>
                 <div class="faq-answer">
-                    Due to venue capacity, we can only accommodate guests formally invited on your invitation. If you received a plus-one, it will be indicated on your invitation. Please reach out to Mary Ameh (+2348168289782) or Mercy Amuta (+2347066341669) if you have any questions!
+                    Due to venue capacity, we can only accommodate guests formally invited on your invitation. If you received a plus-one, it will be indicated on your invitation. Please reach out to Mary Ameh (+2348168289782) or Ann Amuta (+2349031530379) if you have any questions!
                 </div>
             </div>
             <div class="faq-item">
@@ -342,11 +332,11 @@
             </div>
             <div class="registry-card">
                 <div class="registry-icon">📞</div>
-                <h3 class="registry-name">Mercy Amuta</h3>
+                <h3 class="registry-name">Ann Amuta</h3>
                 <div class="account-details">
-                    <p class="account-number" style="font-size:1.2rem;">+234 706 634 1669</p>
+                    <p class="account-number" style="font-size:1.2rem;">+234 903 153 0379</p>
                 </div>
-                <button class="registry-btn" onclick="callNumber('+2347066341669')">Call Now</button>
+                <button class="registry-btn" onclick="callNumber('+2349031530379')">Call Now</button>
             </div>
             <div class="registry-card">
                 <div class="registry-icon">📞</div>
