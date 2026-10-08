@@ -4,219 +4,296 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grace & Francis - December 19, 2026</title>
+    <script>document.documentElement.classList.add('js');</script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;500&display=swap');
-        
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap');
+
+        :root {
+            --seafoam: #C1E3DD;
+            --seafoam-soft: #EEF7F5;
+            --navy: #001F5B;
+            --navy-light: #0B2D73;
+            --navy-soft: #1B3A6B;
+            --champagne: #F7E7CE;
+            --gold: #9A7339;
+            --blush: #FFB6C1;
+            --blush-soft: #FFF4F6;
+            --text: #3d4a5c;
+            --orn: #9A7339;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body { font-family: 'Montserrat', sans-serif; color: #2c3e50; overflow-x: hidden; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Montserrat', sans-serif; color: var(--text); overflow-x: hidden; background: #fff; }
         h1, h2, h3 { font-family: 'Cormorant Garamond', serif; }
-        
-        /* Hero - Seafoam Mist */
+
+        /* ============ HERO ============ */
         .hero {
-            height: 100vh;
+            height: 100vh; min-height: 560px;
             background: linear-gradient(135deg, #B3DCD4 0%, #C1E3DD 50%, #D6EDE8 100%);
             display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; position: relative; overflow: hidden;
+            text-align: center; position: relative; overflow: hidden; padding: 20px;
         }
         .hero::before {
-            content: ''; position: absolute; width: 400px; height: 400px;
-            background: radial-gradient(circle, rgba(255,182,193,0.35) 0%, transparent 70%);
-            border-radius: 50%; top: -100px; right: -100px; animation: float 6s ease-in-out infinite;
+            content: ''; position: absolute; width: 420px; height: 420px;
+            background: radial-gradient(circle, rgba(255,182,193,0.40) 0%, transparent 70%);
+            border-radius: 50%; top: -110px; right: -110px; animation: float 6s ease-in-out infinite;
         }
         .hero::after {
-            content: ''; position: absolute; width: 300px; height: 300px;
-            background: radial-gradient(circle, rgba(255,255,255,0.55) 0%, transparent 70%);
-            border-radius: 50%; bottom: -50px; left: -50px; animation: float 8s ease-in-out infinite reverse;
+            content: ''; position: absolute; width: 320px; height: 320px;
+            background: radial-gradient(circle, rgba(255,255,255,0.60) 0%, transparent 70%);
+            border-radius: 50%; bottom: -60px; left: -60px; animation: float 8s ease-in-out infinite reverse;
         }
         @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+        @keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
         .hero-content { position: relative; z-index: 1; }
-        .hero h1 { font-size: 5rem; font-weight: 400; color: #001F5B; margin-bottom: 1rem; letter-spacing: 2px; }
-        .ampersand { font-size: 4rem; color: #9A7339; margin: 0 1rem; }
-        .hero-date { font-size: 1.5rem; color: #001F5B; margin-top: 1rem; letter-spacing: 3px; }
-        .hero-location { font-size: 1.1rem; color: #1B3A6B; margin-top: 0.5rem; font-weight: 400; }
-        .scroll-indicator { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); animation: bounce 2s infinite; color: #001F5B; font-size: 2rem; }
+        .hero h1 { font-size: 5.5rem; font-weight: 400; color: var(--navy); letter-spacing: 3px; line-height: 1.1; animation: rise 1.2s ease both; }
+        .ampersand { font-style: italic; font-size: 4.2rem; color: var(--gold); margin: 0 1rem; }
+        .hero-ornament { display: flex; align-items: center; justify-content: center; gap: 14px; margin: 1.6rem 0 1.4rem; color: var(--gold); font-size: 0.7rem; animation: rise 1.2s ease 0.25s both; }
+        .hero-ornament span { display: block; width: 80px; height: 1px; background: var(--gold); opacity: 0.8; }
+        .hero-date { font-size: 1.45rem; color: var(--navy); letter-spacing: 6px; font-weight: 500; animation: rise 1.2s ease 0.45s both; }
+        .hero-location { font-size: 1.05rem; color: var(--navy-soft); margin-top: 0.8rem; font-weight: 400; letter-spacing: 1px; animation: rise 1.2s ease 0.6s both; }
+        .scroll-indicator { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); animation: bounce 2s infinite; color: var(--navy); font-size: 2rem; }
         @keyframes bounce {
             0%,20%,50%,80%,100% { transform: translateX(-50%) translateY(0); }
             40% { transform: translateX(-50%) translateY(-10px); }
             60% { transform: translateX(-50%) translateY(-5px); }
         }
 
-        /* Sections */
-        section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
-        .section-title { font-size: 3rem; text-align: center; color: #1a6b54; margin-bottom: 3rem; position: relative; }
-        .section-title::after { content: ''; display: block; width: 100px; height: 2px; background: linear-gradient(90deg, transparent, #2d8b6f, transparent); margin: 1rem auto; }
+        /* ============ BANDS & TITLES ============ */
+        .band { padding: 100px 20px; position: relative; }
+        .band-white { background: #fff; }
+        .band-seafoam { background: var(--seafoam-soft); }
+        .band-blush { background: var(--blush-soft); }
+        .band-navy { background: linear-gradient(160deg, #001F5B 0%, #0B2D73 100%); color: #dfe8f5; overflow: hidden; --orn: var(--champagne); }
+        .band-navy::before {
+            content: ''; position: absolute; width: 520px; height: 520px; top: -200px; right: -160px;
+            background: radial-gradient(circle, rgba(247,231,206,0.14) 0%, transparent 70%); border-radius: 50%;
+        }
+        .band-navy::after {
+            content: ''; position: absolute; width: 420px; height: 420px; bottom: -180px; left: -140px;
+            background: radial-gradient(circle, rgba(193,227,221,0.14) 0%, transparent 70%); border-radius: 50%;
+        }
+        .container { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
 
-        /* Story */
-        .story-content { max-width: 800px; margin: 0 auto; text-align: center; line-height: 1.8; font-size: 1.1rem; color: #4a5568; }
-        .story-content p { margin-bottom: 1.5rem; }
+        .section-title { font-size: 3.2rem; font-weight: 500; text-align: center; color: var(--navy); margin-bottom: 3.2rem; letter-spacing: 1px; }
+        .band-navy .section-title { color: var(--champagne); }
+        .section-title::after {
+            content: '◆'; display: block; width: 160px; margin: 1rem auto 0;
+            font-size: 0.6rem; color: var(--orn); line-height: 1; text-align: center;
+            background: linear-gradient(var(--orn), var(--orn)) left center / 60px 1px no-repeat,
+                        linear-gradient(var(--orn), var(--orn)) right center / 60px 1px no-repeat;
+        }
 
-        /* Timeline */
-        .timeline { max-width: 700px; margin: 0 auto; }
-        .timeline-item { background: linear-gradient(135deg, rgba(26,107,84,0.08) 0%, rgba(45,139,111,0.08) 100%); padding: 2rem; border-radius: 15px; margin-bottom: 2rem; border-left: 4px solid #1a6b54; box-shadow: 0 4px 15px rgba(26,107,84,0.1); transition: transform 0.3s ease; }
-        .timeline-item:hover { transform: translateX(10px); }
-        .timeline-time { font-size: 1.3rem; color: #1a6b54; font-weight: 500; margin-bottom: 0.5rem; }
-        .timeline-title { font-size: 1.8rem; color: #0a3d2e; margin-bottom: 0.5rem; }
-        .timeline-location { color: #2d8b6f; font-size: 1rem; }
-        .map-link { display: inline-block; margin-top: 1rem; color: #1a6b54; text-decoration: none; font-weight: 500; padding: 8px 20px; background: rgba(26,107,84,0.1); border-radius: 20px; transition: all 0.3s ease; }
-        .map-link:hover { background: rgba(26,107,84,0.2); transform: translateX(5px); }
+        /* ============ STORY ============ */
+        .story-content { max-width: 780px; margin: 0 auto; text-align: center; }
+        .story-content p { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; line-height: 1.85; color: var(--navy-soft); margin-bottom: 1.6rem; }
 
-        /* Photos link */
-        .view-more-btn { display: inline-block; background: linear-gradient(135deg, #1a6b54 0%, #2d8b6f 100%); color: white; padding: 15px 40px; border-radius: 30px; text-decoration: none; font-size: 1.1rem; font-weight: 500; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(26,107,84,0.3); }
-        .view-more-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(26,107,84,0.4); }
+        /* ============ BUTTONS ============ */
+        .btn {
+            display: inline-block; background: var(--navy); color: #fff; padding: 15px 38px;
+            border: none; border-radius: 40px; text-decoration: none; cursor: pointer;
+            font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 500; letter-spacing: 1px;
+            box-shadow: 0 6px 18px rgba(0,31,91,0.25); transition: all 0.3s ease;
+        }
+        .btn:hover { background: var(--navy-light); transform: translateY(-3px); box-shadow: 0 10px 26px rgba(0,31,91,0.32); }
+        .btn-gold { background: var(--champagne); color: var(--navy); box-shadow: 0 8px 24px rgba(0,0,0,0.25); font-weight: 600; font-size: 1.1rem; padding: 18px 52px; }
+        .btn-gold:hover { background: #fff; color: var(--navy); box-shadow: 0 12px 30px rgba(0,0,0,0.3); }
 
-        /* Colour Palette */
-        .palette-intro { max-width: 700px; margin: 0 auto 2.5rem; text-align: center; color: #4a5568; line-height: 1.8; font-size: 1.05rem; }
-        .palette-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; max-width: 900px; margin: 0 auto; }
-        .swatch-card { background: white; border-radius: 14px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); overflow: hidden; width: 140px; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer; border: 2px solid rgba(26,107,84,0.1); }
-        .swatch-card:hover { transform: translateY(-8px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); border-color: rgba(26,107,84,0.3); }
-        .swatch { height: 100px; width: 100%; }
-        .swatch-info { padding: 12px; text-align: center; }
-        .swatch-name { font-size: 0.78rem; font-weight: 600; color: #2c3e50; margin-bottom: 6px; }
-        .swatch-hex { font-size: 0.75rem; color: #6b8e9f; font-family: monospace; background: #f5f5f5; padding: 3px 8px; border-radius: 6px; display: inline-block; transition: background 0.2s; }
-        .swatch-card:hover .swatch-hex { background: #e0f0ea; color: #1a6b54; }
-        .swatch-card.white-card { border: 2px solid #e0e0e0; }
-        .copied-toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: #1a6b54; color: white; padding: 12px 28px; border-radius: 25px; font-size: 0.9rem; opacity: 0; transition: opacity 0.3s ease; pointer-events: none; font-weight: 500; z-index: 999; }
+        /* ============ SCHEDULE ============ */
+        .timeline { max-width: 720px; margin: 0 auto; }
+        .timeline-item {
+            background: #fff; border-radius: 20px; padding: 2.3rem 2rem; margin-bottom: 1.8rem; text-align: center;
+            border: 1px solid rgba(193,227,221,0.9); box-shadow: 0 8px 28px rgba(0,31,91,0.07);
+            position: relative; overflow: hidden; transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+        .timeline-item::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--seafoam), var(--champagne), var(--blush)); }
+        .timeline-item:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,31,91,0.13); }
+        .timeline-time { display: inline-block; background: var(--champagne); color: var(--gold); font-weight: 600; font-size: 0.95rem; letter-spacing: 3px; padding: 7px 20px; border-radius: 30px; margin-bottom: 1rem; }
+        .timeline-title { font-size: 2.2rem; font-weight: 600; color: var(--navy); margin-bottom: 0.4rem; }
+        .timeline-location { color: var(--navy-soft); font-size: 1rem; line-height: 1.6; }
+        .map-link {
+            display: inline-block; color: var(--navy); text-decoration: none; font-weight: 500; font-size: 0.9rem;
+            padding: 9px 22px; background: var(--seafoam); border-radius: 30px; transition: all 0.3s ease;
+        }
+        .map-link:hover { background: var(--navy); color: #fff; transform: translateY(-2px); }
+
+        /* ============ COLOUR PALETTE ============ */
+        .palette-intro { max-width: 680px; margin: -1rem auto 3rem; text-align: center; color: var(--text); line-height: 1.9; font-size: 1.05rem; }
+        .palette-grid { display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; max-width: 960px; margin: 0 auto; }
+        .swatch-card {
+            background: #fff; border-radius: 20px; padding: 1.8rem 1rem 1.4rem; width: 160px; text-align: center; cursor: pointer;
+            border: 1px solid rgba(0,31,91,0.06); box-shadow: 0 6px 22px rgba(0,31,91,0.07); transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .swatch-card:hover { transform: translateY(-8px); box-shadow: 0 16px 36px rgba(0,31,91,0.15); }
+        .swatch { width: 96px; height: 96px; border-radius: 50%; margin: 0 auto 1.1rem; box-shadow: 0 8px 20px rgba(0,31,91,0.18), 0 0 0 5px #fff, 0 0 0 6px rgba(0,31,91,0.10); }
+        .swatch-name { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
+        .swatch-hex { font-size: 0.75rem; color: var(--gold); font-family: monospace; background: var(--champagne); padding: 4px 10px; border-radius: 20px; display: inline-block; letter-spacing: 1px; transition: all 0.2s; }
+        .swatch-card:hover .swatch-hex { background: var(--navy); color: #fff; }
+        .copied-toast {
+            position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: var(--navy); color: var(--champagne);
+            padding: 13px 30px; border-radius: 40px; font-size: 0.9rem; opacity: 0; transition: opacity 0.3s ease; pointer-events: none;
+            font-weight: 500; z-index: 999; box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+        }
         .copied-toast.show { opacity: 1; }
 
-        /* RSVP */
-        .rsvp-btn { display: inline-block; background: linear-gradient(135deg, #1a6b54 0%, #2d8b6f 100%); color: white; padding: 18px 50px; border-radius: 35px; text-decoration: none; font-size: 1.3rem; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 6px 20px rgba(26,107,84,0.4); letter-spacing: 1px; }
-        .rsvp-btn:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(26,107,84,0.5); }
+        /* ============ CARDS (Registry & Contacts) ============ */
+        .registry-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 28px; max-width: 1000px; margin: 0 auto; }
+        .registry-card {
+            background: #fff; padding: 2.4rem 1.8rem 2.2rem; border-radius: 20px; text-align: center;
+            border: 1px solid rgba(193,227,221,0.9); box-shadow: 0 8px 28px rgba(0,31,91,0.07);
+            position: relative; overflow: hidden; transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+        .registry-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--seafoam), var(--champagne), var(--blush)); }
+        .registry-card:hover { transform: translateY(-8px); box-shadow: 0 16px 40px rgba(0,31,91,0.13); }
+        .registry-icon {
+            width: 70px; height: 70px; border-radius: 50%; background: var(--seafoam-soft); border: 1px solid var(--seafoam);
+            display: flex; align-items: center; justify-content: center; font-size: 1.9rem; margin: 0 auto 1.2rem;
+        }
+        .registry-name { font-size: 1.8rem; color: var(--navy); margin-bottom: 0.3rem; font-weight: 600; }
+        .account-details { margin: 1rem 0 1.6rem; line-height: 1.7; }
+        .account-name { color: var(--gold); font-weight: 500; letter-spacing: 1px; font-size: 0.95rem; margin-bottom: 0.3rem; }
+        .account-number { color: var(--navy); font-size: 1.45rem; font-weight: 600; letter-spacing: 1.5px; }
+        .contact-card .account-number { font-size: 1.2rem; letter-spacing: 1px; }
+        .registry-intro { text-align: center; margin: -1rem auto 3rem; color: var(--text); max-width: 620px; line-height: 1.9; font-size: 1.05rem; }
 
-        /* Registry & Cards */
-        .registry-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 900px; margin: 0 auto; }
-        .registry-card { background: white; padding: 2rem; border-radius: 15px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.08); transition: transform 0.3s ease; border: 2px solid rgba(26,107,84,0.1); }
-        .registry-card:hover { transform: translateY(-10px); border-color: rgba(26,107,84,0.3); }
-        .registry-icon { font-size: 3rem; margin-bottom: 1rem; }
-        .registry-name { font-size: 1.5rem; color: #1a6b54; margin-bottom: 1rem; font-weight: 600; }
-        .account-details { margin: 1.5rem 0; line-height: 1.8; }
-        .account-name { color: #2d8b6f; font-weight: 500; margin-bottom: 0.5rem; font-size: 1rem; }
-        .account-number { color: #0a3d2e; font-size: 1.4rem; font-weight: 600; letter-spacing: 1px; margin-top: 0.5rem; }
-        .registry-btn { background: linear-gradient(135deg, #1a6b54 0%, #2d8b6f 100%); color: white; padding: 12px 30px; border: none; border-radius: 25px; cursor: pointer; font-size: 1rem; transition: all 0.3s ease; font-weight: 500; }
-        .registry-btn:hover { transform: scale(1.05); background: linear-gradient(135deg, #0a3d2e 0%, #1a6b54 100%); }
+        /* ============ RSVP (navy band) ============ */
+        .story-content p.rsvp-text { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; line-height: 1.7; color: #e6edf8; margin-bottom: 2.4rem; }
+        .story-content p.rsvp-text strong { color: var(--champagne); font-weight: 600; }
+        .story-content p.rsvp-contact { margin-top: 2.2rem; font-size: 0.95rem; color: var(--seafoam); line-height: 1.8; }
 
-        /* FAQ */
+        /* ============ FAQ ============ */
         .faq-container { max-width: 800px; margin: 0 auto; }
-        .faq-item { background: white; margin-bottom: 1.5rem; border-radius: 10px; overflow: hidden; box-shadow: 0 3px 15px rgba(0,0,0,0.05); }
-        .faq-question { background: linear-gradient(135deg, rgba(26,107,84,0.08) 0%, rgba(45,139,111,0.08) 100%); padding: 1.5rem; cursor: pointer; font-size: 1.2rem; color: #1a6b54; font-weight: 500; display: flex; justify-content: space-between; align-items: center; transition: background 0.3s ease; }
-        .faq-question:hover { background: linear-gradient(135deg, rgba(26,107,84,0.12) 0%, rgba(45,139,111,0.12) 100%); }
-        .faq-answer { padding: 0 1.5rem; max-height: 0; overflow: hidden; transition: all 0.3s ease; color: #4a5568; line-height: 1.8; }
-        .faq-answer.active { padding: 1.5rem; max-height: 500px; }
-        .faq-toggle { font-size: 1.5rem; color: #1a6b54; transition: transform 0.3s ease; }
+        .faq-item { background: #fff; margin-bottom: 1.2rem; border-radius: 16px; overflow: hidden; border: 1px solid rgba(193,227,221,0.9); box-shadow: 0 4px 18px rgba(0,31,91,0.05); }
+        .faq-question {
+            padding: 1.4rem 1.6rem; cursor: pointer; font-size: 1.05rem; color: var(--navy); font-weight: 500;
+            display: flex; justify-content: space-between; align-items: center; gap: 12px; transition: background 0.3s ease;
+        }
+        .faq-question:hover { background: var(--seafoam-soft); }
+        .faq-answer { padding: 0 1.6rem; max-height: 0; overflow: hidden; transition: all 0.35s ease; color: var(--text); line-height: 1.9; border-top: 0 solid var(--seafoam); }
+        .faq-answer.active { padding: 1.4rem 1.6rem 1.6rem; max-height: 600px; border-top-width: 1px; }
+        .faq-toggle { font-size: 1.6rem; color: var(--gold); transition: transform 0.3s ease; line-height: 1; }
         .faq-toggle.active { transform: rotate(45deg); }
 
-        /* Footer */
-        footer { background: linear-gradient(135deg, rgba(26,107,84,0.1) 0%, rgba(45,139,111,0.08) 100%); padding: 40px 20px; text-align: center; color: #2d8b6f; }
-        footer p { margin: 10px 0; }
-        .heart { color: #1a6b54; font-size: 1.5rem; }
+        /* ============ FOOTER ============ */
+        footer { background: linear-gradient(160deg, #001F5B 0%, #0B2D73 100%); padding: 70px 20px 60px; text-align: center; color: var(--champagne); position: relative; }
+        footer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--seafoam), var(--champagne), var(--blush)); }
+        .footer-line { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 2rem; margin-bottom: 0.6rem; }
+        .heart { color: var(--blush); font-size: 1.6rem; margin: 0.6rem 0; }
+        .footer-names { font-family: 'Cormorant Garamond', serif; font-size: 2.6rem; font-weight: 500; color: #fff; letter-spacing: 2px; }
+        .footer-date { font-size: 0.85rem; margin-top: 1.2rem; letter-spacing: 4px; color: var(--seafoam); text-transform: uppercase; }
+
+        /* ============ REVEAL ON SCROLL ============ */
+        .js .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.9s ease, transform 0.9s ease; }
+        .js .reveal.in { opacity: 1; transform: none; }
+        @media (prefers-reduced-motion: reduce) {
+            .js .reveal { opacity: 1; transform: none; transition: none; }
+            .hero h1, .hero-ornament, .hero-date, .hero-location { animation: none; }
+        }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 3rem; }
-            .section-title { font-size: 2rem; }
+            .hero h1 { font-size: 3.2rem; }
+            .ampersand { font-size: 2.6rem; margin: 0 0.4rem; }
+            .hero-date { letter-spacing: 3px; font-size: 1.15rem; }
+            .band { padding: 70px 18px; }
+            .section-title { font-size: 2.4rem; margin-bottom: 2.6rem; }
+            .story-content p { font-size: 1.3rem; }
             .registry-grid { grid-template-columns: 1fr; }
-            .palette-grid { gap: 14px; }
-            .swatch-card { width: 120px; }
+            .palette-grid { gap: 16px; }
+            .swatch-card { width: 140px; }
+            .rsvp-text { font-size: 1.35rem; }
+            .footer-names { font-size: 2.1rem; }
         }
     </style>
 </head>
 <body>
 
     <!-- Hero -->
-    <section class="hero">
+    <header class="hero">
         <div class="hero-content">
             <h1>Grace <span class="ampersand">&</span> Francis</h1>
+            <div class="hero-ornament"><span></span>◆<span></span></div>
             <p class="hero-date">DECEMBER 19, 2026</p>
             <p class="hero-location">St. Mary's Catholic Church, North Bank, Makurdi</p>
         </div>
         <div class="scroll-indicator">↓</div>
-    </section>
+    </header>
 
     <!-- Our Story -->
-    <section id="story">
-        <h2 class="section-title">Our Story</h2>
-        <div class="story-content">
-            <p>Every love story is special, but ours is our favorite. From the moment our paths crossed, we knew something magical was beginning.</p>
-            <p>Through laughter and tears, adventures and quiet moments, we've built a foundation of love, trust, and friendship that will last a lifetime.</p>
-            <p>Now, we're more than excited to begin our greatest adventure yet - marriage. Join us as we celebrate our love and commitment to each other on December 19th, 2026.</p>
+    <section id="story" class="band band-white">
+        <div class="container">
+            <h2 class="section-title reveal">Our Story</h2>
+            <div class="story-content reveal">
+                <p>Every love story is special, but ours is our favorite. From the moment our paths crossed, we knew something magical was beginning.</p>
+                <p>Through laughter and tears, adventures and quiet moments, we've built a foundation of love, trust, and friendship that will last a lifetime.</p>
+                <p>Now, we're more than excited to begin our greatest adventure yet - marriage. Join us as we celebrate our love and commitment to each other on December 19th, 2026.</p>
+            </div>
         </div>
     </section>
 
     <!-- Event Schedule -->
-    <section id="timeline">
-        <h2 class="section-title">Event Schedule</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-time">10:00 AM</div>
-                <h3 class="timeline-title">Mass</h3>
-                <p class="timeline-location">St. Mary's Catholic Church, North Bank, Makurdi</p>
-                <p class="timeline-location" style="font-size:0.95rem; margin-top:0.5rem; font-style:italic;">(Opposite North Bank Market)</p>
-                <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:1rem;">
-                    <a href="https://maps.app.goo.gl/y9RASGHhf3KthZCU6" target="_blank" class="map-link">📍 Church Location</a>
-                    <a href="https://maps.app.goo.gl/bLDr4TC6ysDd1ahA9" target="_blank" class="map-link">🏪 North Bank Market</a>
+    <section id="timeline" class="band band-seafoam">
+        <div class="container">
+            <h2 class="section-title reveal">Event Schedule</h2>
+            <div class="timeline reveal">
+                <div class="timeline-item">
+                    <div class="timeline-time">10:00 AM</div>
+                    <h3 class="timeline-title">Mass</h3>
+                    <p class="timeline-location">St. Mary's Catholic Church, North Bank, Makurdi</p>
+                    <p class="timeline-location" style="font-size:0.95rem; margin-top:0.4rem; font-style:italic;">(Opposite North Bank Market)</p>
+                    <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:1.3rem;">
+                        <a href="https://maps.app.goo.gl/y9RASGHhf3KthZCU6" target="_blank" class="map-link">📍 Church Location</a>
+                        <a href="https://maps.app.goo.gl/bLDr4TC6ysDd1ahA9" target="_blank" class="map-link">🏪 North Bank Market</a>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">2:00 PM</div>
+                    <h3 class="timeline-title">Reception & Dinner</h3>
+                    <p class="timeline-location">Calivia Event Center, Modern Market, Quarters</p>
+                    <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:1.3rem;">
+                        <a href="https://maps.app.goo.gl/aZTwQfiak87GUaf49" target="_blank" class="map-link">📍 Reception Location</a>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">6:00 PM</div>
+                    <h3 class="timeline-title">Dancing & Celebration</h3>
+                    <p class="timeline-location">Let's dance the night away!</p>
                 </div>
             </div>
-            <div class="timeline-item">
-                <div class="timeline-time">2:00 PM</div>
-                <h3 class="timeline-title">Reception & Dinner</h3>
-                <p class="timeline-location">Calivia Event Center, Modern Market, Quarters</p>
-                <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:1rem;">
-                    <a href="https://maps.app.goo.gl/aZTwQfiak87GUaf49" target="_blank" class="map-link">📍 Reception Location</a>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-time">6:00 PM</div>
-                <h3 class="timeline-title">Dancing & Celebration</h3>
-                <p class="timeline-location">Let's dance the night away!</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Photos -->
-    <section id="gallery">
-        <h2 class="section-title">Our Moments</h2>
-        <div style="text-align:center;">
-            <a href="https://drive.google.com/drive/folders/1X8OevxhPDT_XWl-aUE0XMXykT1SqtXhq?usp=sharing" target="_blank" class="view-more-btn">📸 View All Photos</a>
         </div>
     </section>
 
     <!-- Colour Palette -->
-    <section id="palette">
-        <h2 class="section-title">Wedding Colour Palette</h2>
-        <p class="palette-intro">
-            Our wedding colours are a beautiful blend of elegance and African vibrancy. Use these as a guide when selecting your outfit and accessories. Click any colour to copy its hex code!
-        </p>
-        <div class="palette-grid">
-            <div class="swatch-card" onclick="copyHex('#C1E3DD', 'Seafoam Mist')">
-                <div class="swatch" style="background:#C1E3DD;"></div>
-                <div class="swatch-info">
+    <section id="palette" class="band band-blush">
+        <div class="container">
+            <h2 class="section-title reveal">Wedding Colour Palette</h2>
+            <p class="palette-intro reveal">
+                Our wedding colours are a beautiful blend of elegance and African vibrancy. Use these as a guide when selecting your outfit and accessories. Click any colour to copy its hex code!
+            </p>
+            <div class="palette-grid reveal">
+                <div class="swatch-card" onclick="copyHex('#C1E3DD', 'Seafoam Mist')">
+                    <div class="swatch" style="background:#C1E3DD;"></div>
                     <div class="swatch-name">Seafoam Mist</div>
                     <div class="swatch-hex">#C1E3DD</div>
                 </div>
-            </div>
-            <div class="swatch-card" onclick="copyHex('#001F5B', 'Navy Blue')">
-                <div class="swatch" style="background:#001F5B;"></div>
-                <div class="swatch-info">
+                <div class="swatch-card" onclick="copyHex('#001F5B', 'Navy Blue')">
+                    <div class="swatch" style="background:#001F5B;"></div>
                     <div class="swatch-name">Navy Blue</div>
                     <div class="swatch-hex">#001F5B</div>
                 </div>
-            </div>
-            <div class="swatch-card" onclick="copyHex('#F7E7CE', 'Champagne Gold')">
-                <div class="swatch" style="background:#F7E7CE;"></div>
-                <div class="swatch-info">
+                <div class="swatch-card" onclick="copyHex('#F7E7CE', 'Champagne Gold')">
+                    <div class="swatch" style="background:#F7E7CE;"></div>
                     <div class="swatch-name">Champagne Gold</div>
                     <div class="swatch-hex">#F7E7CE</div>
                 </div>
-            </div>
-            <div class="swatch-card" onclick="copyHex('#FFB6C1', 'Blush Pink')">
-                <div class="swatch" style="background:#FFB6C1;"></div>
-                <div class="swatch-info">
+                <div class="swatch-card" onclick="copyHex('#FFB6C1', 'Blush Pink')">
+                    <div class="swatch" style="background:#FFB6C1;"></div>
                     <div class="swatch-name">Blush Pink</div>
                     <div class="swatch-hex">#FFB6C1</div>
                 </div>
-            </div>
-            <div class="swatch-card white-card" onclick="copyHex('#FFFFFF', 'White')">
-                <div class="swatch" style="background:#FFFFFF; border-bottom:1px solid #e0e0e0;"></div>
-                <div class="swatch-info">
+                <div class="swatch-card" onclick="copyHex('#FFFFFF', 'White')">
+                    <div class="swatch" style="background:#FFFFFF;"></div>
                     <div class="swatch-name">White</div>
                     <div class="swatch-hex">#FFFFFF</div>
                 </div>
@@ -225,144 +302,150 @@
     </section>
 
     <!-- Gift Registry -->
-    <section id="registry">
-        <h2 class="section-title">Gift Registry</h2>
-        <p style="text-align:center; margin-bottom:3rem; color:#6b8e9f; max-width:600px; margin-left:auto; margin-right:auto;">
-            Your presence at our wedding is the greatest gift of all. However, if you wish to honor us with a gift, you can send your love and blessings to either of these accounts.
-        </p>
-        <div class="registry-grid">
-            <div class="registry-card">
-                <div class="registry-icon">🏦</div>
-                <h3 class="registry-name">Sterling Bank</h3>
-                <div class="account-details">
-                    <p class="account-name">Ameh Francis Imaben</p>
-                    <p class="account-number">0069284356</p>
+    <section id="registry" class="band band-white">
+        <div class="container">
+            <h2 class="section-title reveal">Gift Registry</h2>
+            <p class="registry-intro reveal">
+                Your presence at our wedding is the greatest gift of all. However, if you wish to honor us with a gift, you can send your love and blessings to either of these accounts.
+            </p>
+            <div class="registry-grid reveal">
+                <div class="registry-card">
+                    <div class="registry-icon">🏦</div>
+                    <h3 class="registry-name">Sterling Bank</h3>
+                    <div class="account-details">
+                        <p class="account-name">Ameh Francis Imaben</p>
+                        <p class="account-number">0069284356</p>
+                    </div>
+                    <button class="btn" onclick="copyToClipboard('0069284356', 'Sterling Bank')">Copy Account Number</button>
                 </div>
-                <button class="registry-btn" onclick="copyToClipboard('0069284356', 'Sterling Bank')">Copy Account Number</button>
-            </div>
-            <div class="registry-card">
-                <div class="registry-icon">🏦</div>
-                <h3 class="registry-name">First Bank</h3>
-                <div class="account-details">
-                    <p class="account-name">Grace Enenu Amuta</p>
-                    <p class="account-number">3157576080</p>
+                <div class="registry-card">
+                    <div class="registry-icon">🏦</div>
+                    <h3 class="registry-name">First Bank</h3>
+                    <div class="account-details">
+                        <p class="account-name">Grace Enenu Amuta</p>
+                        <p class="account-number">3157576080</p>
+                    </div>
+                    <button class="btn" onclick="copyToClipboard('3157576080', 'First Bank')">Copy Account Number</button>
                 </div>
-                <button class="registry-btn" onclick="copyToClipboard('3157576080', 'First Bank')">Copy Account Number</button>
             </div>
         </div>
     </section>
 
     <!-- RSVP -->
-    <section id="rsvp">
-        <h2 class="section-title">RSVP</h2>
-        <div class="story-content">
-            <p style="font-size:1.2rem; margin-bottom:2rem;">
-                We would be honored by your presence at our wedding celebration. Please let us know if you'll be joining us by <strong>November 19, 2026</strong>.
-            </p>
-            <div style="text-align:center; margin-top:3rem;">
-                <a href="https://forms.gle/yh94xRPkdZpUFYpe6" target="_blank" class="rsvp-btn">✉️ RSVP Now</a>
+    <section id="rsvp" class="band band-navy">
+        <div class="container">
+            <h2 class="section-title reveal">RSVP</h2>
+            <div class="story-content reveal">
+                <p class="rsvp-text">
+                    We would be honored by your presence at our wedding celebration. Please let us know if you'll be joining us by <strong>November 19, 2026</strong>.
+                </p>
+                <a href="https://forms.gle/yh94xRPkdZpUFYpe6" target="_blank" class="btn btn-gold">✉️ RSVP Now</a>
+                <p class="rsvp-contact" style="font-family:'Montserrat',sans-serif; font-size:0.95rem; margin-bottom:0;">
+                    Can't access the form? Contact Mary Ameh at +234 816 828 9782 or Ann Amuta at +234 903 153 0379
+                </p>
             </div>
-            <p style="margin-top:2rem; font-size:0.95rem; color:#6b8e9f;">
-                Can't access the form? Contact Mary Ameh at +234 816 828 9782 or Ann Amuta at +234 903 153 0379
-            </p>
         </div>
     </section>
 
     <!-- FAQ -->
-    <section id="faq">
-        <h2 class="section-title">Frequently Asked Questions</h2>
-        <div class="faq-container">
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFAQ(this)">
-                    What should I wear? <span class="faq-toggle">+</span>
+    <section id="faq" class="band band-seafoam">
+        <div class="container">
+            <h2 class="section-title reveal">Frequently Asked Questions</h2>
+            <div class="faq-container reveal">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        What should I wear? <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        We're going for romantic elegance with a touch of African tradition! Please dress in African attire. Think traditional casual dresses, agbadas, and your most elegant outfits. Our colour palette is Seafoam Mist, Navy Blue, Champagne Gold, Blush Pink, and White - feel free to complement these colours! See the <strong>Wedding Colour Palette</strong> section above for exact colour codes.
+                    </div>
                 </div>
-                <div class="faq-answer">
-                    We're going for romantic elegance with a touch of African tradition! Please dress in African attire. Think traditional casual dresses, agbadas, and your most elegant outfits. Our colour palette is Seafoam Mist, Navy Blue, Champagne Gold, Blush Pink, and White - feel free to complement these colours! See the <strong>Wedding Colour Palette</strong> section above for exact colour codes.
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        When should I RSVP by? <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Please RSVP by November 19, 2026. This helps us finalize our guest count with the venue and caterers. You can RSVP by contacting us directly or through Our Points of Contact.
+                    </div>
                 </div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFAQ(this)">
-                    When should I RSVP by? <span class="faq-toggle">+</span>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        Can I bring a plus-one? <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Due to venue capacity, we can only accommodate guests formally invited on your invitation. If you received a plus-one, it will be indicated on your invitation. Please reach out to Mary Ameh (+2348168289782) or Ann Amuta (+2349031530379) if you have any questions!
+                    </div>
                 </div>
-                <div class="faq-answer">
-                    Please RSVP by November 19, 2026. This helps us finalize our guest count with the venue and caterers. You can RSVP by contacting us directly or through our wedding coordinator.
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        Will there be parking available? <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Yes! There is ample parking available at St. Mary's Catholic Church and at the reception venue. Attendants will be available to assist with parking directions.
+                    </div>
                 </div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFAQ(this)">
-                    Can I bring a plus-one? <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    Due to venue capacity, we can only accommodate guests formally invited on your invitation. If you received a plus-one, it will be indicated on your invitation. Please reach out to Mary Ameh (+2348168289782) or Ann Amuta (+2349031530379) if you have any questions!
-                </div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFAQ(this)">
-                    Will there be parking available? <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    Yes! There is ample parking available at St. Mary's Catholic Church and at the reception venue. Attendants will be available to assist with parking directions.
-                </div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFAQ(this)">
-                    Will the ceremony be indoors or outdoors? <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    The ceremony will take place indoors at St. Mary's Catholic Church, and the reception will be indoors at our reception venue.
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        Will the ceremony be indoors or outdoors? <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        The ceremony will take place indoors at St. Mary's Catholic Church, and the reception will be indoors at our reception venue.
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Enquiries -->
-    <section id="enquiries">
-        <h2 class="section-title">Enquiries</h2>
-        <p style="text-align:center; margin-bottom:3rem; color:#6b8e9f; max-width:600px; margin-left:auto; margin-right:auto;">
-            Have questions or need assistance? Feel free to reach out to Our Points of Contact.
-        </p>
-        <div class="registry-grid">
-            <div class="registry-card">
-                <div class="registry-icon">📞</div>
-                <h3 class="registry-name">Mary Ameh</h3>
-                <div class="account-details">
-                    <p class="account-number" style="font-size:1.2rem;">+234 816 828 9782</p>
+    <section id="enquiries" class="band band-white">
+        <div class="container">
+            <h2 class="section-title reveal">Enquiries</h2>
+            <p class="registry-intro reveal">
+                Have questions or need assistance? Feel free to reach out to Our Points of Contact.
+            </p>
+            <div class="registry-grid reveal">
+                <div class="registry-card contact-card">
+                    <div class="registry-icon">📞</div>
+                    <h3 class="registry-name">Mary Ameh</h3>
+                    <div class="account-details">
+                        <p class="account-number">+234 816 828 9782</p>
+                    </div>
+                    <button class="btn" onclick="callNumber('+2348168289782')">Call Now</button>
                 </div>
-                <button class="registry-btn" onclick="callNumber('+2348168289782')">Call Now</button>
-            </div>
-            <div class="registry-card">
-                <div class="registry-icon">📞</div>
-                <h3 class="registry-name">Ann Amuta</h3>
-                <div class="account-details">
-                    <p class="account-number" style="font-size:1.2rem;">+234 903 153 0379</p>
+                <div class="registry-card contact-card">
+                    <div class="registry-icon">📞</div>
+                    <h3 class="registry-name">Ann Amuta</h3>
+                    <div class="account-details">
+                        <p class="account-number">+234 903 153 0379</p>
+                    </div>
+                    <button class="btn" onclick="callNumber('+2349031530379')">Call Now</button>
                 </div>
-                <button class="registry-btn" onclick="callNumber('+2349031530379')">Call Now</button>
-            </div>
-            <div class="registry-card">
-                <div class="registry-icon">📞</div>
-                <h3 class="registry-name">Blessing Egwu</h3>
-                <div class="account-details">
-                    <p class="account-number" style="font-size:1.2rem;">+234 814 673 8556</p>
+                <div class="registry-card contact-card">
+                    <div class="registry-icon">📞</div>
+                    <h3 class="registry-name">Blessing Egwu</h3>
+                    <div class="account-details">
+                        <p class="account-number">+234 814 673 8556</p>
+                    </div>
+                    <button class="btn" onclick="callNumber('+2348146738556')">Call Now</button>
                 </div>
-                <button class="registry-btn" onclick="callNumber('+2348146738556')">Call Now</button>
-            </div>
-            <div class="registry-card">
-                <div class="registry-icon">📞</div>
-                <h3 class="registry-name">Gobi Daniel</h3>
-                <div class="account-details">
-                    <p class="account-number" style="font-size:1.2rem;">+234 706 758 6367</p>
+                <div class="registry-card contact-card">
+                    <div class="registry-icon">📞</div>
+                    <h3 class="registry-name">Gobi Daniel</h3>
+                    <div class="account-details">
+                        <p class="account-number">+234 706 758 6367</p>
+                    </div>
+                    <button class="btn" onclick="callNumber('+2347067586367')">Call Now</button>
                 </div>
-                <button class="registry-btn" onclick="callNumber('+2347067586367')">Call Now</button>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>We can't wait to celebrate with you!</p>
+        <p class="footer-line">We can't wait to celebrate with you!</p>
         <p class="heart">♥</p>
-        <p>Grace & Francis</p>
-        <p style="font-size:0.9rem; margin-top:20px;">December 19, 2026 • Makurdi</p>
+        <p class="footer-names">Grace & Francis</p>
+        <p class="footer-date">December 19, 2026 • Makurdi</p>
     </footer>
 
     <div class="copied-toast" id="copiedToast">✅ Copied!</div>
@@ -390,13 +473,13 @@
             setTimeout(() => t.classList.remove('show'), 2500);
         }
 
-        document.querySelectorAll('a[href^="#"]').forEach(a => {
-            a.addEventListener('click', e => {
-                e.preventDefault();
-                const t = document.querySelector(a.getAttribute('href'));
-                if (t) t.scrollIntoView({ behavior: 'smooth' });
+        // Gentle fade-in as each section scrolls into view
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
             });
-        });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
     </script>
 </body>
 </html>
