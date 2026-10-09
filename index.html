@@ -6,7 +6,7 @@
     <title>Grace & Francis - December 19, 2026</title>
     <script>document.documentElement.classList.add('js');</script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap');
 
         :root {
             --seafoam: #C1E3DD;
@@ -18,6 +18,7 @@
             --gold: #9A7339;
             --blush: #FFB6C1;
             --blush-soft: #FFF4F6;
+            --rose: #B85C72;
             --text: #3d4a5c;
             --orn: #9A7339;
         }
@@ -85,6 +86,43 @@
             background: linear-gradient(var(--orn), var(--orn)) left center / 60px 1px no-repeat,
                         linear-gradient(var(--orn), var(--orn)) right center / 60px 1px no-repeat;
         }
+
+        /* ============ INVITATION PANEL ============ */
+        .invite-card {
+            max-width: 760px; margin: 0 auto; background: #FFFDF9; border: 2px solid var(--blush); border-radius: 28px;
+            padding: 2.4rem 2rem 3.4rem; text-align: center; position: relative;
+            box-shadow: inset 0 0 0 7px #fff, inset 0 0 0 8px var(--champagne), 0 24px 60px rgba(0,31,91,0.12);
+        }
+        .pearls {
+            height: 16px; max-width: 360px; margin: 0 auto; filter: drop-shadow(0 1px 1px rgba(0,0,0,0.18));
+            background: radial-gradient(circle at center, #ffffff 0, #ffffff 3px, #e9e2d7 4.5px, #e9e2d7 5.5px, transparent 6.5px) 0 center / 18px 16px repeat-x;
+        }
+        .crown { display: block; margin: 1.6rem auto -2px; }
+        .monogram {
+            width: 96px; height: 96px; border-radius: 50%; border: 2px solid var(--gold); margin: 0.4rem auto 1.8rem;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 500; color: var(--gold); letter-spacing: 2px;
+            background: radial-gradient(circle, #ffffff 0%, var(--champagne) 170%);
+            box-shadow: 0 0 0 5px #fff, 0 0 0 6px var(--champagne);
+        }
+        .invite-label { font-size: 0.78rem; letter-spacing: 4px; font-weight: 600; color: var(--navy); text-transform: uppercase; margin-bottom: 1rem; }
+        .invite-family { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 600; color: var(--navy); letter-spacing: 1.5px; text-transform: uppercase; line-height: 1.3; }
+        .invite-origin { font-size: 0.78rem; letter-spacing: 2px; text-transform: uppercase; color: var(--navy-soft); margin-top: 0.35rem; line-height: 1.7; }
+        .invite-and { display: flex; align-items: center; gap: 16px; max-width: 360px; margin: 1.4rem auto; color: var(--rose); font-size: 0.85rem; letter-spacing: 4px; font-weight: 600; }
+        .invite-and::before, .invite-and::after { content: ''; flex: 1; height: 1px; background: var(--blush); }
+        .script { font-family: 'Great Vibes', 'Cormorant Garamond', cursive; font-weight: 400; }
+        .invites { font-size: 2.3rem; color: var(--rose); margin: 2.2rem 0 1rem; }
+        .you-frame {
+            display: inline-block; padding: 0.2rem 3.4rem 0.5rem; border: 1.5px solid var(--blush); border-radius: 40px;
+            box-shadow: 0 0 0 5px #fff, 0 0 0 6px var(--blush); font-size: 4rem; color: var(--navy); line-height: 1.3; margin-bottom: 1.2rem;
+        }
+        .to-the { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.3rem; color: var(--navy-soft); }
+        .wedding-word { font-size: 6.5rem; color: var(--navy); line-height: 1.05; margin-top: 0.1rem; }
+        .ceremony { font-family: 'Cormorant Garamond', serif; font-size: 2.3rem; font-weight: 600; color: var(--navy); margin-top: -0.3rem; letter-spacing: 1px; }
+        .of-children { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.2rem; color: var(--navy-soft); margin: 0.2rem 0 1.4rem; }
+        .invite-name { font-family: 'Cormorant Garamond', serif; font-size: 1.95rem; font-weight: 600; color: var(--navy); letter-spacing: 3px; text-transform: uppercase; line-height: 1.3; }
+        .invite-amp { font-size: 3.2rem; color: var(--gold); line-height: 1; margin: 0.5rem 0; }
+        .invite-card .btn { margin-top: 2.4rem; }
 
         /* ============ STORY ============ */
         .story-content { max-width: 780px; margin: 0 auto; text-align: center; }
@@ -202,8 +240,16 @@
             .registry-grid { grid-template-columns: 1fr; }
             .palette-grid { gap: 16px; }
             .swatch-card { width: 140px; }
-            .rsvp-text { font-size: 1.35rem; }
+            .story-content p.rsvp-text { font-size: 1.35rem; }
             .footer-names { font-size: 2.1rem; }
+            .invite-card { padding: 2rem 1.2rem 2.8rem; }
+            .invite-family { font-size: 1.2rem; }
+            .invite-origin { font-size: 0.68rem; letter-spacing: 1.2px; }
+            .invites { font-size: 1.9rem; }
+            .you-frame { font-size: 3rem; padding: 0.1rem 2.4rem 0.4rem; }
+            .wedding-word { font-size: 4.4rem; }
+            .ceremony { font-size: 1.8rem; }
+            .invite-name { font-size: 1.35rem; letter-spacing: 2px; }
         }
     </style>
 </head>
@@ -219,6 +265,47 @@
         </div>
         <div class="scroll-indicator">↓</div>
     </header>
+
+    <!-- Invitation -->
+    <section id="invitation" class="band band-blush">
+        <div class="container">
+            <div class="invite-card reveal">
+                <div class="pearls"></div>
+
+                <svg class="crown" viewBox="0 0 48 28" width="40" height="24" aria-hidden="true">
+                    <path d="M4 24 L8 8 L17 16 L24 4 L31 16 L40 8 L44 24 Z" fill="none" stroke="#9A7339" stroke-width="1.6" stroke-linejoin="round"/>
+                    <circle cx="8" cy="7" r="2" fill="#9A7339"/>
+                    <circle cx="24" cy="3.5" r="2" fill="#9A7339"/>
+                    <circle cx="40" cy="7" r="2" fill="#9A7339"/>
+                </svg>
+                <div class="monogram">GF</div>
+
+                <p class="invite-label">The Families Of</p>
+                <p class="invite-family">Mr. &amp; Mrs. Emmanuel Amuta</p>
+                <p class="invite-origin">of Itabono Owukpa Ogbadibo LGA, Benue State</p>
+
+                <div class="invite-and">AND</div>
+
+                <p class="invite-family">Mr. &amp; Mrs. Simeon Ameh</p>
+                <p class="invite-origin">of Imane, Olamaboro LGA of Kogi State</p>
+
+                <p class="invites script">Specially invites</p>
+                <div class="you-frame script">You</div>
+                <p class="to-the">to the</p>
+                <p class="wedding-word script">Wedding</p>
+                <p class="ceremony">Ceremony</p>
+                <p class="of-children">of their children</p>
+
+                <p class="invite-name">Amuta Grace Enenu</p>
+                <p class="invite-amp script">&amp;</p>
+                <p class="invite-name">Ameh Francis Imaben</p>
+
+                <a href="invitation-card.jpeg" target="_blank" rel="noopener" class="btn">View Our Invitation Card</a>
+
+                <div class="pearls" style="margin-top:2.4rem;"></div>
+            </div>
+        </div>
+    </section>
 
     <!-- Our Story -->
     <section id="story" class="band band-white">
@@ -238,7 +325,13 @@
             <h2 class="section-title reveal">Event Schedule</h2>
             <div class="timeline reveal">
                 <div class="timeline-item">
-                    <div class="timeline-time">10:00 AM</div>
+                    <div class="timeline-time">18 DEC · 1:00 PM</div>
+                    <h3 class="timeline-title">Traditional Rite</h3>
+                    <p class="timeline-location">Mr. Emmanuel Amuta's Compound</p>
+                    <p class="timeline-location" style="font-size:0.95rem; margin-top:0.4rem; font-style:italic;">(Beside 72 Barracks Fence Mammy Market, North Bank, Makurdi)</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">19 DEC · 10:00 AM</div>
                     <h3 class="timeline-title">Mass</h3>
                     <p class="timeline-location">St. Mary's Catholic Church, North Bank, Makurdi</p>
                     <p class="timeline-location" style="font-size:0.95rem; margin-top:0.4rem; font-style:italic;">(Opposite North Bank Market)</p>
@@ -248,7 +341,7 @@
                     </div>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-time">2:00 PM</div>
+                    <div class="timeline-time">19 DEC · 2:00 PM</div>
                     <h3 class="timeline-title">Reception</h3>
                     <p class="timeline-location">Calivia Event Center, Modern Market, Quarters</p>
                     <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:1.3rem;">
