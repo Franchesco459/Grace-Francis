@@ -124,6 +124,26 @@
         .invite-amp { font-size: 3.2rem; color: var(--gold); line-height: 1; margin: 0.5rem 0; }
         .invite-card .btn { margin-top: 2.4rem; }
 
+        /* ============ FLORAL CORNERS (invitation panel) ============ */
+        .invite-card > * { position: relative; z-index: 1; }
+        .invite-card > .floral {
+            position: absolute; z-index: 0; width: 230px; height: 230px; overflow: visible; pointer-events: none;
+            filter: drop-shadow(0 4px 6px rgba(0,31,91,0.14));
+        }
+        .floral-tr { top: -24px; right: -24px; transform-origin: top right; animation: swayTR 7s ease-in-out infinite; }
+        .floral-bl { bottom: -24px; left: -24px; transform: rotate(180deg); transform-origin: bottom left; animation: swayBL 8s ease-in-out infinite; }
+        @keyframes swayTR { 0%,100% { transform: rotate(0deg); } 50% { transform: rotate(-1.8deg); } }
+        @keyframes swayBL { 0%,100% { transform: rotate(180deg); } 50% { transform: rotate(181.8deg); } }
+
+        /* ============ FLORAL CORNERS (hero) ============ */
+        .hero .hero-content, .hero .scroll-indicator { z-index: 2; }
+        .hero-floral {
+            position: absolute; z-index: 1; width: 190px; height: 190px; overflow: visible; pointer-events: none;
+            filter: drop-shadow(0 4px 6px rgba(0,31,91,0.14));
+        }
+        .hero-floral-tr { top: -14px; right: -14px; transform-origin: top right; animation: swayTR 7s ease-in-out infinite; }
+        .hero-floral-bl { bottom: -14px; left: -14px; transform: rotate(180deg); transform-origin: bottom left; animation: swayBL 8s ease-in-out infinite; }
+
         /* ============ STORY ============ */
         .story-content { max-width: 780px; margin: 0 auto; text-align: center; }
         .story-content p { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; line-height: 1.85; color: var(--navy-soft); margin-bottom: 1.6rem; }
@@ -228,6 +248,7 @@
         @media (prefers-reduced-motion: reduce) {
             .js .reveal { opacity: 1; transform: none; transition: none; }
             .hero h1, .hero-ornament, .hero-date, .hero-location { animation: none; }
+            .invite-card > .floral, .hero-floral { animation: none; }
         }
 
         @media (max-width: 768px) {
@@ -250,13 +271,187 @@
             .wedding-word { font-size: 4.4rem; }
             .ceremony { font-size: 1.8rem; }
             .invite-name { font-size: 1.35rem; letter-spacing: 2px; }
+            .invite-card > .floral { width: 112px; height: 112px; }
+            .floral-tr { top: -14px; right: -14px; }
+            .floral-bl { bottom: -14px; left: -14px; }
+            .hero-floral { width: 104px; height: 104px; }
+            .hero-floral-tr { top: -8px; right: -8px; }
+            .hero-floral-bl { bottom: -8px; left: -8px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Decorative floral artwork (used in the hero and invitation section) -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+        <defs>
+            <radialGradient id="gPink" cx="50%" cy="100%" r="105%">
+                <stop offset="0%" stop-color="#F59DB0"/>
+                <stop offset="100%" stop-color="#FFD8DF"/>
+            </radialGradient>
+            <radialGradient id="gPinkIn" cx="50%" cy="100%" r="105%">
+                <stop offset="0%" stop-color="#EE86A0"/>
+                <stop offset="100%" stop-color="#FFBFCA"/>
+            </radialGradient>
+            <!-- Seafoam Mist tones (matches #C1E3DD) -->
+            <radialGradient id="gMint" cx="50%" cy="100%" r="105%">
+                <stop offset="0%" stop-color="#A9D5CC"/>
+                <stop offset="100%" stop-color="#DCF0EB"/>
+            </radialGradient>
+            <radialGradient id="gMintIn" cx="50%" cy="100%" r="105%">
+                <stop offset="0%" stop-color="#98CBC1"/>
+                <stop offset="100%" stop-color="#CBE8E2"/>
+            </radialGradient>
+            <!-- Champagne Gold tones -->
+            <radialGradient id="gGold" cx="50%" cy="100%" r="105%">
+                <stop offset="0%" stop-color="#EACB9C"/>
+                <stop offset="100%" stop-color="#FBF1DF"/>
+            </radialGradient>
+            <radialGradient id="gGoldIn" cx="50%" cy="100%" r="105%">
+                <stop offset="0%" stop-color="#E3BE88"/>
+                <stop offset="100%" stop-color="#F6E3C2"/>
+            </radialGradient>
+
+            <ellipse id="petalO" cx="50" cy="24" rx="22" ry="24"/>
+            <ellipse id="petalM" cx="50" cy="31" rx="16" ry="17"/>
+            <ellipse id="petalI" cx="50" cy="40" rx="11" ry="12"/>
+
+            <!-- Blush pink rose -->
+            <symbol id="rose-pink" viewBox="0 0 100 100">
+                <circle cx="50" cy="54" r="47" fill="#7a3b4a" opacity="0.10"/>
+                <g fill="url(#gPink)" stroke="#E58EA2" stroke-width="0.9">
+                    <use href="#petalO"/>
+                    <use href="#petalO" transform="rotate(72 50 50)"/>
+                    <use href="#petalO" transform="rotate(144 50 50)"/>
+                    <use href="#petalO" transform="rotate(216 50 50)"/>
+                    <use href="#petalO" transform="rotate(288 50 50)"/>
+                </g>
+                <g fill="url(#gPink)" stroke="#E58EA2" stroke-width="0.8">
+                    <use href="#petalM" transform="rotate(36 50 50)"/>
+                    <use href="#petalM" transform="rotate(108 50 50)"/>
+                    <use href="#petalM" transform="rotate(180 50 50)"/>
+                    <use href="#petalM" transform="rotate(252 50 50)"/>
+                    <use href="#petalM" transform="rotate(324 50 50)"/>
+                </g>
+                <g fill="url(#gPinkIn)" stroke="#DB7C92" stroke-width="0.8">
+                    <use href="#petalI"/>
+                    <use href="#petalI" transform="rotate(90 50 50)"/>
+                    <use href="#petalI" transform="rotate(180 50 50)"/>
+                    <use href="#petalI" transform="rotate(270 50 50)"/>
+                </g>
+                <path d="M50 50 m-3 0 a3 3 0 1 1 3 3 a6 6 0 1 1 -6 -6 a9 9 0 0 1 9 -3" fill="none" stroke="#C9647D" stroke-width="1.1" stroke-linecap="round"/>
+            </symbol>
+
+            <!-- Seafoam Mist rose -->
+            <symbol id="rose-mint" viewBox="0 0 100 100">
+                <circle cx="50" cy="54" r="47" fill="#2f5e58" opacity="0.10"/>
+                <g fill="url(#gMint)" stroke="#86BDB2" stroke-width="0.9">
+                    <use href="#petalO"/>
+                    <use href="#petalO" transform="rotate(72 50 50)"/>
+                    <use href="#petalO" transform="rotate(144 50 50)"/>
+                    <use href="#petalO" transform="rotate(216 50 50)"/>
+                    <use href="#petalO" transform="rotate(288 50 50)"/>
+                </g>
+                <g fill="url(#gMint)" stroke="#86BDB2" stroke-width="0.8">
+                    <use href="#petalM" transform="rotate(36 50 50)"/>
+                    <use href="#petalM" transform="rotate(108 50 50)"/>
+                    <use href="#petalM" transform="rotate(180 50 50)"/>
+                    <use href="#petalM" transform="rotate(252 50 50)"/>
+                    <use href="#petalM" transform="rotate(324 50 50)"/>
+                </g>
+                <g fill="url(#gMintIn)" stroke="#78B3A8" stroke-width="0.8">
+                    <use href="#petalI"/>
+                    <use href="#petalI" transform="rotate(90 50 50)"/>
+                    <use href="#petalI" transform="rotate(180 50 50)"/>
+                    <use href="#petalI" transform="rotate(270 50 50)"/>
+                </g>
+                <path d="M50 50 m-3 0 a3 3 0 1 1 3 3 a6 6 0 1 1 -6 -6 a9 9 0 0 1 9 -3" fill="none" stroke="#5F9E92" stroke-width="1.1" stroke-linecap="round"/>
+            </symbol>
+
+            <!-- Champagne gold rose -->
+            <symbol id="rose-gold" viewBox="0 0 100 100">
+                <circle cx="50" cy="54" r="47" fill="#6b5326" opacity="0.10"/>
+                <g fill="url(#gGold)" stroke="#D6B27E" stroke-width="0.9">
+                    <use href="#petalO"/>
+                    <use href="#petalO" transform="rotate(72 50 50)"/>
+                    <use href="#petalO" transform="rotate(144 50 50)"/>
+                    <use href="#petalO" transform="rotate(216 50 50)"/>
+                    <use href="#petalO" transform="rotate(288 50 50)"/>
+                </g>
+                <g fill="url(#gGold)" stroke="#D6B27E" stroke-width="0.8">
+                    <use href="#petalM" transform="rotate(36 50 50)"/>
+                    <use href="#petalM" transform="rotate(108 50 50)"/>
+                    <use href="#petalM" transform="rotate(180 50 50)"/>
+                    <use href="#petalM" transform="rotate(252 50 50)"/>
+                    <use href="#petalM" transform="rotate(324 50 50)"/>
+                </g>
+                <g fill="url(#gGoldIn)" stroke="#CFA76F" stroke-width="0.8">
+                    <use href="#petalI"/>
+                    <use href="#petalI" transform="rotate(90 50 50)"/>
+                    <use href="#petalI" transform="rotate(180 50 50)"/>
+                    <use href="#petalI" transform="rotate(270 50 50)"/>
+                </g>
+                <path d="M50 50 m-3 0 a3 3 0 1 1 3 3 a6 6 0 1 1 -6 -6 a9 9 0 0 1 9 -3" fill="none" stroke="#A87C3F" stroke-width="1.1" stroke-linecap="round"/>
+            </symbol>
+
+            <!-- Leaf (points along +x from its origin) -->
+            <g id="leaf">
+                <path d="M0 0 C 8 -12 28 -13 40 0 C 28 13 8 12 0 0 Z" fill="#9CCBAE"/>
+                <path d="M0 0 C 8 -12 28 -13 40 0 Z" fill="#86BB9B"/>
+                <path d="M2 0 L36 0" stroke="#6FA586" stroke-width="1" fill="none"/>
+            </g>
+
+            <!-- Baby's breath sprig -->
+            <g id="sprig">
+                <path d="M0 0 C 20 -10 40 -12 60 -30" stroke="#B9A98A" stroke-width="1.2" fill="none"/>
+                <path d="M22 -8 C 30 -22 38 -26 44 -40" stroke="#B9A98A" stroke-width="1" fill="none"/>
+                <path d="M38 -13 C 52 -14 60 -12 70 -14" stroke="#B9A98A" stroke-width="1" fill="none"/>
+                <g fill="#ffffff" stroke="#E8DFD0" stroke-width="0.8">
+                    <circle cx="60" cy="-30" r="3.4"/>
+                    <circle cx="44" cy="-40" r="3.2"/>
+                    <circle cx="70" cy="-14" r="3.2"/>
+                    <circle cx="52" cy="-22" r="2.6"/>
+                    <circle cx="30" cy="-24" r="2.6"/>
+                    <circle cx="64" cy="-21" r="2.2"/>
+                    <circle cx="36" cy="-33" r="2.2"/>
+                    <circle cx="18" cy="-10" r="2.4"/>
+                </g>
+                <circle cx="56" cy="-36" r="2.6" fill="#FFC5CF" stroke="#F4A9B8" stroke-width="0.6"/>
+                <circle cx="26" cy="-16" r="2.2" fill="#FFC5CF" stroke="#F4A9B8" stroke-width="0.6"/>
+            </g>
+
+            <!-- Floral corner cluster for the invitation panel (anchored top-right of a 240x240 box) -->
+            <g id="cluster">
+                <use href="#leaf" transform="translate(222 30) rotate(150) scale(1.9)"/>
+                <use href="#leaf" transform="translate(232 84) rotate(112) scale(1.7)"/>
+                <use href="#leaf" transform="translate(176 16) rotate(172) scale(1.6)"/>
+                <use href="#leaf" transform="translate(215 120) rotate(88) scale(1.3)"/>
+                <use href="#sprig" transform="translate(196 118) rotate(104) scale(1.15)"/>
+                <use href="#sprig" transform="translate(128 24) rotate(158) scale(1)"/>
+                <use href="#sprig" transform="translate(238 140) rotate(120) scale(0.9)"/>
+                <use href="#rose-pink" x="118" y="-14" width="104" height="104"/>
+                <use href="#rose-mint" x="166" y="56" width="86" height="86"/>
+                <use href="#rose-pink" x="84" y="62" width="46" height="46"/>
+            </g>
+
+            <!-- Smaller cluster for the hero corners (champagne rose stands out on the seafoam background) -->
+            <g id="cluster-hero">
+                <use href="#leaf" transform="translate(228 34) rotate(150) scale(1.7)"/>
+                <use href="#leaf" transform="translate(236 92) rotate(112) scale(1.5)"/>
+                <use href="#leaf" transform="translate(180 18) rotate(172) scale(1.4)"/>
+                <use href="#sprig" transform="translate(200 116) rotate(104) scale(1.05)"/>
+                <use href="#sprig" transform="translate(132 26) rotate(158) scale(0.9)"/>
+                <use href="#rose-pink" x="120" y="-10" width="100" height="100"/>
+                <use href="#rose-gold" x="172" y="58" width="78" height="78"/>
+                <use href="#rose-pink" x="90" y="62" width="40" height="40"/>
+            </g>
+        </defs>
+    </svg>
+
     <!-- Hero -->
     <header class="hero">
+        <svg class="hero-floral hero-floral-tr" viewBox="0 0 240 240" aria-hidden="true"><use href="#cluster-hero"/></svg>
+        <svg class="hero-floral hero-floral-bl" viewBox="0 0 240 240" aria-hidden="true"><use href="#cluster-hero"/></svg>
         <div class="hero-content">
             <h1>Grace <span class="ampersand">&</span> Francis</h1>
             <div class="hero-ornament"><span></span>◆<span></span></div>
@@ -270,6 +465,8 @@
     <section id="invitation" class="band band-blush">
         <div class="container">
             <div class="invite-card reveal">
+                <svg class="floral floral-tr" viewBox="0 0 240 240" aria-hidden="true"><use href="#cluster"/></svg>
+                <svg class="floral floral-bl" viewBox="0 0 240 240" aria-hidden="true"><use href="#cluster"/></svg>
                 <div class="pearls"></div>
 
                 <svg class="crown" viewBox="0 0 48 28" width="40" height="24" aria-hidden="true">
@@ -343,7 +540,7 @@
                 <div class="timeline-item">
                     <div class="timeline-time">19 DEC · 2:00 PM</div>
                     <h3 class="timeline-title">Reception</h3>
-                    <p class="timeline-location">Calivia Event Center, Modern Market, Quarters</p>
+                    <p class="timeline-location">Calivia Events Center, Modern Market, Quarters</p>
                     <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:1.3rem;">
                         <a href="https://maps.app.goo.gl/aZTwQfiak87GUaf49" target="_blank" class="map-link">📍 Reception Location</a>
                     </div>
