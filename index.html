@@ -167,6 +167,9 @@
         .swatch-card:hover { transform: translateY(-8px); box-shadow: 0 16px 36px rgba(0,31,91,0.15); }
         .swatch { width: 96px; height: 96px; border-radius: 50%; margin: 0 auto 1.1rem; box-shadow: 0 8px 20px rgba(0,31,91,0.18), 0 0 0 5px #fff, 0 0 0 6px rgba(0,31,91,0.10); }
         .swatch-name { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
+        .swatch-card { display: flex; flex-direction: column; align-items: center; }
+        .swatch-name { flex: 1; }
+        .swatch-name .alias { display: block; font-size: 0.85rem; font-weight: 400; font-style: italic; color: var(--navy-soft); }
         .swatch-hex { font-size: 0.75rem; color: var(--gold); font-family: monospace; background: var(--champagne); padding: 4px 10px; border-radius: 20px; display: inline-block; letter-spacing: 1px; transition: all 0.2s; }
         .swatch-card:hover .swatch-hex { background: var(--navy); color: #fff; }
         .copied-toast {
